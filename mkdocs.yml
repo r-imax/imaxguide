@@ -2,7 +2,16 @@ site_name: Guide to IMAX Screens
 site_url: https://mydomain.org/
 copyright: Text is available under the Creative Commons Attribution-ShareAlike License 4.0. IMAX® is a registered trademark of IMAX Corporation.
 
+nav:
+  - Home: index.md
+  - By Region: region.md
+  - About: about.md
+
 theme:
+  language: en
+  icon:
+      logo: material/theater
+      
   name: material
   palette:
 
