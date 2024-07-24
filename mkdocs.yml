@@ -2,10 +2,20 @@ site_name: Guide to IMAX Screens
 site_url: https://mydomain.org/
 copyright: Text is available under the Creative Commons Attribution-ShareAlike License 4.0. IMAX® is a registered trademark of IMAX Corporation.
 
+dev_addr: "0.0.0.0:8000"
+
 nav:
   - Home: index.md
   - By Region: region.md
   - About: about.md
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
+plugins:
+  - search
+  - table-reader
 
 theme:
   language: en
