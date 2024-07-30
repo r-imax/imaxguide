@@ -65,11 +65,23 @@ function revertTableValues() {
 // Attach the functions to the button's click event
 let convertButton = document.getElementById('convertButton');
 convertButton.addEventListener('click', function() {
-    if (convertButton.textContent === 'Convert to Feet and Inches') {
+    if (convertButton.textContent === 'Imperial') {
         convertTableValues();
-        convertButton.textContent = 'Revert to Meters';
+        convertButton.textContent = 'Metric';
     } else {
         revertTableValues();
-        convertButton.textContent = 'Convert to Feet and Inches';
+        convertButton.textContent = 'Imperial';
     }
 });
+
+// Attach the functions to the button's change event
+// let convertButton = document.getElementById('convertButton');
+// convertButton.addEventListener('change', function() {
+//     if (convertButton.checked) {
+//         convertTableValues();
+//         document.body.setAttribute("units", "imperial")
+//     } else {
+//         revertTableValues();
+//         document.body.setAttribute("units", "metric")
+//     }
+// });
