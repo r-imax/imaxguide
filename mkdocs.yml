@@ -12,6 +12,7 @@ nav:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+  - javascripts/convertunits.js
 
 extra_css:
   - stylesheets/extra.css
