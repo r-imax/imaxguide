@@ -1,6 +1,6 @@
 # Oceania
 
-[Convert to Feet and Inches](#){ #convertButton .md-button }
+Units: [Imperial](#imperial){ #convertButton}
 
 
 ## Australia
