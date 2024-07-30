@@ -21,6 +21,9 @@ plugins:
   - search
   - table-reader
 
+markdown_extensions:
+  - attr_list
+
 theme:
   language: en
   icon:
@@ -38,8 +41,6 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
-
-
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode

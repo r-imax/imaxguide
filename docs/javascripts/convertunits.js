@@ -1,32 +1,75 @@
-// Select all tables
-let tables = document.querySelectorAll('table');
+// Conversion factor
+const metersToFeet = 3.28084;
 
-// Iterate over each table
-tables.forEach((table) => {
-    // Select all rows in the current table, skipping the first row
-    let rows = Array.from(table.querySelectorAll('tr')).slice(1);
+// Map to store original cell values
+let originalValues = new Map();
 
-    // Iterate over each row
-    rows.forEach((row) => {
-        // Select the 7th cell in the current row
-        let width = row.cells[6]; // Index is 0-based, so 6 is the 7th cell
-        let height = row.cells[7]; // Index is 0-based, so 6 is the 7th cell
-        // Get the length in meters from the cell's content
-        let widthInMeters = parseFloat(width.textContent);
-        let heightInMeters = parseFloat(height.textContent);
+// Function to convert table values
+function convertTableValues() {
+    // Select all tables
+    let tables = document.querySelectorAll('table');
 
+    // Iterate over each table
+    tables.forEach((table) => {
+        // Select all rows in the current table, skipping the first row
+        let rows = Array.from(table.querySelectorAll('tr')).slice(1);
 
-        // Convert the length to feet (1 meter is approximately 3.28084 feet)
-        let widthInFeet = widthInMeters * 3.28084;
-        let heightInFeet = heightInMeters * 3.28084;
-        // Calculate the whole feet part and the inches part
-        let widthFeet = Math.floor(widthInFeet);
-        let widthInches = Math.round((widthInFeet - widthFeet) * 12);
-        let heightFeet = Math.floor(heightInFeet);
-        let heightInches = Math.round((heightInFeet - heightFeet) * 12);
+        // Iterate over each row
+        rows.forEach((row) => {
+            // Select the 7th and 8th cells in the current row
+            let widthCell = row.cells[6]; // Index is 0-based, so 6 is the 7th cell
+            let heightCell = row.cells[7]; // Index is 0-based, so 7 is the 8th cell
 
-        // Modify the content of the cell
-        width.textContent = widthFeet + "' " + widthInches + '"';
-        height.textContent = heightFeet + "' " + heightInches + '"';
+            // Store the original values
+            if (!originalValues.has(widthCell)) {
+                originalValues.set(widthCell, widthCell.textContent);
+            }
+            if (!originalValues.has(heightCell)) {
+                originalValues.set(heightCell, heightCell.textContent);
+            }
+
+            // Get the length in meters from the cell's content
+            let widthInMeters = parseFloat(widthCell.textContent);
+            let heightInMeters = parseFloat(heightCell.textContent);
+
+            // Check if the values are numbers
+            if (isNaN(widthInMeters) || isNaN(heightInMeters)) {
+                console.error('Invalid number in table cell');
+                return;
+            }
+
+            // Convert the length to feet
+            let widthInFeet = widthInMeters * metersToFeet;
+            let heightInFeet = heightInMeters * metersToFeet;
+
+            // Calculate the whole feet part and the inches part
+            let widthFeet = Math.floor(widthInFeet);
+            let widthInches = Math.round((widthInFeet - widthFeet) * 12);
+            let heightFeet = Math.floor(heightInFeet);
+            let heightInches = Math.round((heightInFeet - heightFeet) * 12);
+
+            // Modify the content of the cell
+            widthCell.textContent = widthFeet + "' " + widthInches + '"';
+            heightCell.textContent = heightFeet + "' " + heightInches + '"';
+        });
     });
+}
+
+// Function to revert table values
+function revertTableValues() {
+    for (let [cell, originalValue] of originalValues.entries()) {
+        cell.textContent = originalValue;
+    }
+}
+
+// Attach the functions to the button's click event
+let convertButton = document.getElementById('convertButton');
+convertButton.addEventListener('click', function() {
+    if (convertButton.textContent === 'Convert to Feet and Inches') {
+        convertTableValues();
+        convertButton.textContent = 'Revert to Meters';
+    } else {
+        revertTableValues();
+        convertButton.textContent = 'Convert to Feet and Inches';
+    }
 });
