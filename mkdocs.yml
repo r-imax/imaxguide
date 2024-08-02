@@ -28,8 +28,12 @@ theme:
   language: en
   icon:
       logo: material/theater
-      
+
   name: material
+  custom_dir: overrides
+
+
+
   palette:
 
     # Palette toggle for automatic mode

@@ -65,23 +65,11 @@ function revertTableValues() {
 // Attach the functions to the button's click event
 let convertButton = document.getElementById('convertButton');
 convertButton.addEventListener('click', function() {
-    if (convertButton.textContent === 'Imperial') {
+    if (convertButton.textContent === 'Metric') {
         convertTableValues();
-        convertButton.textContent = 'Metric';
+        convertButton.textContent = 'Imperial';
     } else {
         revertTableValues();
-        convertButton.textContent = 'Imperial';
+        convertButton.textContent = 'Metric';
     }
 });
-
-// Attach the functions to the button's change event
-// let convertButton = document.getElementById('convertButton');
-// convertButton.addEventListener('change', function() {
-//     if (convertButton.checked) {
-//         convertTableValues();
-//         document.body.setAttribute("units", "imperial")
-//     } else {
-//         revertTableValues();
-//         document.body.setAttribute("units", "metric")
-//     }
-// });

@@ -1,3 +1,13 @@
 .md-grid {
   max-width: initial;
 }
+
+.converter{
+  font-size: .7rem;
+}
+
+#convertButton {
+  float: right;
+  font-weight: bold;
+  text-decoration: underline;
+}
