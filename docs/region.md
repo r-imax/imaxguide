@@ -1,6 +1,6 @@
 # A List of Regions
 
-* Africa
+* [Africa](africa.md)
 * Americas
 * Asia
 * Europe
