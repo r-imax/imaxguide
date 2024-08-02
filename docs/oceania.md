@@ -1,8 +1,5 @@
 # Oceania
 
-<!-- Units: [Metric](#units){ #convertButton} -->
-
-
 ## Australia
 
 {{ read_csv('assets/csv/oceania/australia.csv') }}
