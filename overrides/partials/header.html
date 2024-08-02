@@ -72,9 +72,15 @@
       </div>
     </div>
 
-    <div class="md-header__button converter">
+    <form class="md-header__option" data-md-component="units">
+      <input class="md-option" data-md-unit="(prefers-color-scheme) type="radio" name="__units" id="__units_metric">
+      <label class="md-header__button converter" title="units" for="__units_metric">Metric</label>
+      <input class="md-option" type="radio" name="__units" id="__units_imperial">
+      <label class="md-header__button converter" title="units" for="__units_imperial" hidden>Imperial</label>
+    </form>
+    <!-- <div class="md-header__button converter">
     Units: <a id="convertButton" href="#">Metric</a>
-    </div>
+    </div> -->
 
     <!-- Color palette toggle -->
     {% if config.theme.palette %}

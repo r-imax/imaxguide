@@ -1,6 +1,6 @@
 # Oceania
 
-Units: [Imperial](#imperial){ #convertButton}
+<!-- Units: [Metric](#units){ #convertButton} -->
 
 
 ## Australia
