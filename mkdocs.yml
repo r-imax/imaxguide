@@ -20,6 +20,9 @@ plugins:
   - search
   - table-reader
 
+hooks:
+    - scripts/converter.py
+
 markdown_extensions:
   - attr_list
   - pymdownx.superfences
