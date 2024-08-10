@@ -2,8 +2,8 @@
 
 ## Australia
 
-{{ read_csv('assets/csv/imperial/oceania/australia_imperial.csv') }}
+{{ read_csv('docs/assets/csv/imperial/oceania/australia.csv') }}
 
 ## New Zealand
 
-{{ read_csv('assets/csv/imperial/oceania/newzealand_imperial.csv') }}
+{{ read_csv('docs/assets/csv/imperial/oceania/newzealand.csv') }}
