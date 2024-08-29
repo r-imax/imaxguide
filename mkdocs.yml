@@ -33,6 +33,8 @@ theme:
   language: en
   icon:
       logo: material/theater
+  features:
+    - content.tabs.link
 
   name: material
 
