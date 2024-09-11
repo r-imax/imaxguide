@@ -2,6 +2,6 @@
 
 * [Africa](regions/africa.md)
 * Americas
-* Asia
+* [Asia](regions/asia.md)
 * Europe
 * [Oceania](regions/oceania.md)
