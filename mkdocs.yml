@@ -33,7 +33,7 @@ theme:
   language: en
   icon:
       logo: material/theater
-  favicon: assets/images/theatre-custom.png
+  favicon: assets/images/theater-custom.png
   features:
     - content.tabs.link
 
