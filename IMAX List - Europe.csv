@@ -1,0 +1,80 @@
+Country,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Screen dimensions,Commercial films shown?
+Austria,Graz,CineplexX Graz & IMAX,1.90:1,IMAX CoLa,1.90:1,,"17.4 m x 9.2 m",Yes
+Austria,Hohenems,Cineplexx Hohenems & IMAX,1.90:1,IMAX CoLa,1.90:1,,"17.0 m x 9.1 m",Yes
+Austria,Vienna,CineplexX Apollo Vienna & IMAX,1.90:1,IMAX CoLa,1.90:1,,"17.6 m x 9.5 m",Yes
+Austria,Vienna,CineplexX Donau Plex IMAX Vienna,1.90:1,IMAX CoLa,1.90:1,,"20.5 m x 11.0 m",Yes
+Austria,Wiener Neudorf,CineplexX Westfield SCS & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Belgium,Antwerp,Kinepolis Mega NV Antwerpen & IMAX,1.90:1,IMAX CoLa,1.90:1,,"20.0 m x 11.0 m",Yes
+Belgium,Brussels,Kinepolis Brussels & IMAX,1.43:1,IMAX GT Laser,1.43:1,,"27.6 m x 19.3 m",Yes
+Belgium,Charleroi,Pathé Charleroi & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"22.0 m x 16.0 m",Yes
+Belgium,Liège,Kinepolis Liege & IMAX,1.90:1,IMAX Laser XT,1.90:1,,"20.0 m x 8.0 m",Yes
+Czechia,Prague,"IMAX Theatre, Palace Flora",1.43:1,IMAX Digital,1.90:1,IMAX GT3D 15/70 mm,"23.9 m x 18.5 m",Yes
+Finland,Helsinki,Finnkino Itis & IMAX,1.90:1,IMAX CoLa,1.90:1,,"23.3 m x 13.3 m",Yes
+France,Archamps,Gaumont Archamps & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"25.0 m x 14.0 m",Yes
+France,Aubiere,Pathe Cine Dome Aubiere & IMAX,1.90:1,IMAX CoLa,1.90:1,,"19.00 m x 10.33 m",Yes
+France,Conflans-Sainte-Honorine,Pathe Conflans & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"25.0 m x 14.7 m",Yes
+France,Grenoble,Pathe Grenoble & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+France,Ivry-sur-Seine,Cinema Pathe Quai d'Ivry & IMAX,1.90:1,IMAX CoLa,1.90:1,,"21.0 m x 11.0 m",Yes
+France,La Valette-du-Var,Pathe La Valette & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"24.38 m x 13.67 m",Yes
+France,Les Pennes Mirabeau,Pathe Plan de Campagne & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"25.0 m x 15.0 m",Yes
+France,Lieusaint,Pathé Carré Sénart & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+France,Marne-la-Vallée,Gaumont Disney Village & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"25.7 m x 14.8 m",Yes
+France,Montpellier,Gaumont Montpellier Multiplexe & IMAX,1.43:1,IMAX GT Laser,1.43:1,,"22.39 m x 16.76 m",Yes
+France,Nîmes,Kinepolis Nimes & IMAX,1.90:1,IMAX Laser XT,1.90:1,,"17.17 m x 9.25 m",Yes
+France,Paris,La Geode,Dome 1.43:1,IMAX Dome with Laser,Dome 1.43:1,,"23.7 m x 17.3 m",
+France,Poitiers,Futuroscope - Kinemax IMAX Theatre,1.43:1,IMAX GT Laser,1.43:1,,"27.2 m x 21.4 m",No
+France,Rouen,Gaumont Rouen Grand Quevilly & IMAX,1.90:1,IMAX CoLa,1.90:1,,"20.30 m x 10.45 m",Yes
+France,Saran,Pathe Saran & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"22.0 m x 12.0 m",Yes
+France,Thillois,Gaumont Parc Millesime & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"22.0 m x 12.0 m",Yes
+France,Toulouse,Cinema Gaumont Labège & IMAX,1.90:1,IMAX CoLa,1.90:1,,"25.0 m x 15.0 m",Yes
+France,Toulouse,IMAX Cite de l'Espace,1.43:1,IMAX GT Laser,1.43:1,,"21.5 m x 17.5 m",No
+France,Tours,Cine Loire & IMAX,1.90:1,IMAX CoLa,1.90:1,,"18.7 m x 10.5 m",Yes
+France,Valenciennes,Pathe Valenciennes & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+France,Vaulx-en-Velin,Cinema Pathe Carre de Soie & IMAX,1.90:1,IMAX CoLa,1.90:1,,"17.90 m x 9.88 m",Yes
+France,Poitiers,Futuroscope - Arthur the 4D Adventure,Dome 1.43:1,,,IMAX Dome 15/70 mm 3D,"25.00 m",No
+Germany,Berlin,UCI Luxe Mercedes Platz & IMAX,1.90:1,IMAX CoLa,1.90:1,,"22.3 m x 13.5 m",Yes
+Germany,Karlsruhe,Filmpalast am ZKM & IMAX,1.43:1,IMAX GT Laser,1.43:1,,"22.3 m x 15.8 m",Yes
+Germany,Leonberg,IMAX Leonberg,1.90:1,IMAX GT Laser,1.90:1,,"38.8 m x 21.0 m",Yes
+Germany,Sinsheim,"IMAX 3D, Sinsheim Auto & Technik Museum",1.43:1,IMAX GT Laser,1.43:1,,"27.0 m x 22.0 m",Yes
+Germany,Speyer,"IMAX Dome, Speyer Technik Museum",Dome 1.43:1,,,IMAX GT Dome 15/70 mm,"24.0 m",No
+Italy,Azzano San Paolo,UCI Cinemas Orio & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"29.6 m x 16.5 m",Yes
+Latvia,Riga,Apollo Kino & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Luxembourg,Kirchberg,Kinepolis Kirchberg & IMAX,1.90:1,IMAX Laser XT,1.90:1,,"17.9 m x 9.5 m",Yes
+Netherlands,Amsterdam,Pathe Arena & IMAX,1.90:1,IMAX CoLa,1.90:1,,"20.4 m x 10.4 m",Yes
+Netherlands,Arnhem,Pathe Arnhem & IMAX,1.90:1,IMAX CoLa,1.90:1,,"21.0 m x 12.0 m",Yes
+Netherlands,Eindhoven,Pathe Eindhoven & IMAX,1.90:1,IMAX CoLa,1.90:1,,"18.0 m x 7.0 m",Yes
+Netherlands,Rotterdam,Pathe Schouwburgplein & IMAX,1.90:1,IMAX CoLa,1.90:1,,"18.0 m x 9.0 m",Yes
+Netherlands,The Hague,Pathe Spuimarkt & IMAX,1.90:1,IMAX CoLa,1.90:1,,"21.0 m x 11.0 m",Yes
+Netherlands,Tilburg,Pathe Tilburg & IMAX,1.90:1,IMAX CoLa,1.90:1,,"19.0 m x 10.0 m",Yes
+Norway,Oslo,ODEON Oslo & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"24.2 m x 13.7 m",Yes
+Poland,Krakow,Cinema City Zakopianka & IMAX,1.90:1,IMAX CoLa,1.90:1,,"24.1 m x 17.4 m",Yes
+Portugal,Lisbon,Cinema NOS Colombo & IMAX,1.90:1,IMAX CoLa,1.90:1,,"21.4 m x 12.0 m",Yes
+Serbia,Belgrade,CineplexX Galerija Belgrade & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Spain,Madrid,Kinepolis Madrid & IMAX,1.90:1,IMAX Laser XT,1.90:1,,"20.0 m x 8.0 m",Yes
+Spain,Valencia,"L'Hemisferic, Ciudad de las Artes y las Ciencias",Dome 1.43:1,,,IMAX GT Dome 15/70 mm,"24.0 m",No
+Sweden,Stockholm,"IMAX Cosmonova, Swedish Museum of Natural History",Dome 1.43:1,IMAX Dome with Laser,Dome 1.43:1,,"23.0 m",
+Sweden,Gothenburg,Filmstaden Bergakungen & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Switzerland,Chur,blue Cinema Chur & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Switzerland,Ebikon-Lucerne,Pathe Mall of Switzerland & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"22.5 m x 12.5 m",Yes
+Switzerland,Geneva,Pathe Balexert & IMAX,1.90:1,IMAX Laser XT,1.90:1,,,Yes
+Switzerland,Spreitenbach,Pathe Spreitenbach & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+Ukraine,Kyiv,Multiplex Lavina Mall & IMAX,1.90:1,IMAX CoLa,1.90:1,,,
+Ukraine,Kyiv,Planeta Kino River Mall & IMAX,1.90:1,IMAX CoLa,1.90:1,,,
+Ukraine,Kyiv,Respublica IMAX,1.90:1,IMAX CoLa,1.90:1,,,
+United Kingdom,Ashford,Cineworld Ashford & IMAX,1.43:1,IMAX CoLa,1.90:1,,"23 m x 16 m",Yes
+United Kingdom,Barnsley,Cineworld Barnsley & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+United Kingdom,Belfast,Cineworld Belfast & IMAX,1.43:1,IMAX CoLa,1.90:1,,,Yes
+United Kingdom,Dunfermline,ODEON Dunfermline & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+United Kingdom,Gateshead,ODEON Gateshead & IMAX,1.90:1,IMAX CoLa,1.90:1,,"19.0 m x 10.0 m",Yes
+United Kingdom,Glasgow,Cineworld Silverburn & IMAX,1.90:1,IMAX CoLa,1.90:1,,"24 m x 13 m",Yes
+United Kingdom,Liverpool,ODEON Liverpool ONE & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+United Kingdom,London,Cineworld Leicester Square IMAX,1.90:1,IMAX GT Laser,1.90:1,,"26.5 m x 14.0 m",Yes
+United Kingdom,Manchester,ODEON Trafford Centre & IMAX,1.90:1,IMAX CoLa,1.90:1,,"17.8 m x 9.7 m",Yes
+United Kingdom,Rushden,Cineworld Rushden Lakes & IMAX,1.90:1,IMAX CoLa,1.90:1,,"23.8 m x 13.2 m",Yes
+United Kingdom,Sheffield,Cineworld Sheffield & IMAX,1.90:1,IMAX GT Laser,1.90:1,,"23.9 m x 12.9 m",Yes
+United Kingdom,Swindon,VUE Swindon & IMAX,1.90:1,IMAX CoLa,1.90:1,,,Yes
+United Kingdom,Watford,Cineworld Watford & IMAX,1.90:1,IMAX CoLa,1.90:1,,"22.0 m x 11.6 m",Yes
+United Kingdom,York,Cineworld York & IMAX,1.43:1,IMAX CoLa,1.90:1,,"22.29 m x 16.81 m",Yes
+United Kingdom,London,"BFI IMAX, British Film Institute",1.43:1,IMAX CoLa,1.90:1,IMAX GT3D 15/70 mm,"26 m x 20 m",Yes
+United Kingdom,London,IMAX: The Ronson Theatre at the Science Museum,1.43:1,IMAX GT Laser,1.43:1,IMAX GT3D 15/70 mm,"24.3 m x 16.8 m",Yes
+United Kingdom,Manchester,Vue Manchester IMAX & The Printworks,1.43:1,IMAX GT Laser,1.43:1,IMAX GT3D 15/70 mm,"26.3 m x 18.8 m",Yes
