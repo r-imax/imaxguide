@@ -16,7 +16,9 @@ The code and CommonMark files used to generate this site are available on GitHub
 
 ## How can I help?
 
-Suggestions and corrections are always accepted. You can reach me on Reddit ([u/anthonylavado](https://www.reddit.com/user/anthonylavado/)), Mastodon ([@anthonylavado:social.bonifacelabs.ca](https://social.bonifacelabs.ca/@anthonylavado)), or by e-mail (admin [AT] 143190.xyz).
+Suggestions and corrections are always accepted. You can reach me on Reddit ([u/anthonylavado](https://www.reddit.com/user/anthonylavado/)), Mastodon ([@anthonylavado:social.bonifacelabs.ca](https://social.bonifacelabs.ca/@anthonylavado)), or by e-mail (updates [AT] 143190.xyz).
+
+If you have comments or concerns that are **not** related to updating information, please send those to admin [AT] 143190.xyz.
 
 A lot has changed since May. I'll need help updating it all.
 

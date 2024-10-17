@@ -6,7 +6,11 @@ dev_addr: "0.0.0.0:8000"
 
 nav:
   - Home: index.md
-  - By Region: region.md
+  - Region:
+    - Africa: regions/africa.md
+    - Asia: regions/asia.md
+    - Europe: regions/europe.md
+    - Oceania: regions/oceania.md
   - About: about.md
 
 extra_javascript:
@@ -36,6 +40,8 @@ theme:
   favicon: assets/images/theater-custom.png
   features:
     - content.tabs.link
+    - navigation.expand
+    - navigation.top
 
   name: material
 
