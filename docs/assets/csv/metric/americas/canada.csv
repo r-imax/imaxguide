@@ -1,10 +1,10 @@
-Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector, Height,Width,Commercial films shown?
-Alberta,Calgary,Landmark Cinemas 16 Country Hills & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.70m,20.00 m,Yes
+Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
+Alberta,Calgary,Landmark Cinemas 16 Country Hills & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.70 m,20.00 m,Yes
 Alberta,Calgary,Scotiabank Chinook & IMAX,1.43:1,IMAX Digital,1.90:1,IMAX SR 15/70 mm, 16.18 m,21.33 m,Yes
 Alberta,Edmonton,TELUS World of Science - Edmonton IMAX Theatre,1.90:1,IMAX GT Laser,1.90:1,No, 12.80 m,21.33 m,Limited
 British Columbia,Coquitlam,Cineplex Cinemas Coquitlam & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.09 m,18.53 m,Yes
 British Columbia,Langley,Cineplex Cinemas Langley & IMAX,1.43:1,IMAX Digital,1.90:1,IMAX SR 15/70 mm,16.00 m,21.30 m,Yes
-British Columbia,Vancouver,OMNIMAX Theatre at Science World,Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,N/A,27.00 m,No
+British Columbia,Vancouver,OMNIMAX Theatre at Science World,Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,27.00 m,No
 British Columbia,Victoria,"IMAX Victoria, Royal BC Museum",1.43:1,IMAX GT Laser,1.43:1,No,18.68 m,25.63 m,Yes
 Nova Scotia,Halifax,Scotiabank Halifax & IMAX,1.43:1,IMAX Digital,1.90:1,IMAX SR 15/70 mm,16.09 m,21.79 m,Yes
 Ontario,Ancaster,SilverCity Ancaster Cinemas & IMAX,1.90:1,IMAX CoLa,1.90:1,No,19.6 m,10.8 m,Yes
@@ -16,6 +16,6 @@ Ontario,Toronto,Scotiabank Toronto & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,18.28 m
 Ontario,Vaughan,Cineplex Cinemas Vaughan & IMAX,1.43:1,IMAX Digital,1.90:1,IMAX SR 15/70 mm,16.12 m,21.79 m,Yes
 Ontario,Waterloo,Landmark Waterloo & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,17.3 m,8.6 m,Yes
 Ontario,Whitby,Landmark Cinemas 24 Whitby & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
-Québec,Gatineau,Canadian Museum of History IMAX Dome,Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,N/A,23.00 m,No
+Québec,Gatineau,Canadian Museum of History IMAX Dome,Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,23.00 m,No
 Québec,Montréal,IMAX Telus Montreal Science Centre,1.43:1,IMAX GT Laser,1.43:1,No,21.33 m,27.73 m,No
 Saskatchewan,Regina,"Kramer IMAX, Saskatchewan Science Centre",1.43:1,IMAX GT Laser,1.43:1,IMAX SR 15/70 mm,15.84 m,21.94 m,Yes
