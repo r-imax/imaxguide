@@ -1,6 +1,7 @@
 site_name: Guide to IMAX Screens
 site_url: https://143190.xyz
 copyright: Text is available under the Creative Commons Attribution-ShareAlike License 4.0. IMAX® is a registered trademark of IMAX Corporation.
+repo_url: https://github.com/r-imax/imaxguide
 
 dev_addr: "0.0.0.0:8000"
 
