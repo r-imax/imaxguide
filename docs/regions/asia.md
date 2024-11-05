@@ -64,6 +64,14 @@
 === "Imperial"
     {{ read_csv('docs/assets/csv/imperial/asia/malaysia.csv', keep_default_na=False) }}
 
+## Oman
+
+=== "Metric"
+    {{ read_csv('docs/assets/csv/metric/asia/oman.csv', keep_default_na=False) }}
+
+=== "Imperial"
+    {{ read_csv('docs/assets/csv/imperial/asia/oman.csv', keep_default_na=False) }}
+
 ## Philippines
 
 === "Metric"
