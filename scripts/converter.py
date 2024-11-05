@@ -36,6 +36,7 @@ for root, dirs, files in os.walk(source_dir):
             source_file = os.path.join(root, file)
             relative_path = os.path.relpath(source_file, source_dir)
             destination_file = os.path.join(imperial_dir, relative_path)
+            print("Attempting", source_file)
 
             # Copy the file to the imperial directory
             shutil.copy(source_file, destination_file)
