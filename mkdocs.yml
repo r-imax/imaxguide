@@ -9,6 +9,7 @@ nav:
   - Home: index.md
   - Region:
     - Africa: regions/africa.md
+    - Americas: regions/americas.md
     - Asia: regions/asia.md
     - Europe: regions/europe.md
     - Oceania: regions/oceania.md
