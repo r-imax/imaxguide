@@ -24,7 +24,7 @@ CA,Los Angeles,AMC The Grove & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
 CA,Los Angeles,"IMAX, California Science Center",1.43:1,IMAX GT Laser,1.43:1,No,20.30 m,27.40 m,No
 CA,Merced,Regal Hollywood Merced & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
 CA,Montclair,AMC DINE-IN Montclair 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
-CA,National City,AMC Plaza Bonita 14 & IMAX,1.90:1,XT LASER,1.90:1,No,10.00 m,15.50 m,Yes
+CA,National City,AMC Plaza Bonita 14 & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,10.00 m,15.50 m,Yes
 CA,Newark,AMC Newpark 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.20 m,18.50 m,Yes
 CA,Ontario,Regal Edwards Ontario Palace & IMAX,1.43:1,IMAX CoLa,1.90:1,IMAX GT3D 15/70 mm,20.40 m,27.10 m,Yes
 CA,Orange,AMC 30 at the Block & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.80 m,17.40 m,Yes
@@ -167,4 +167,4 @@ WA,Kent,AMC Kent Station 14 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.80 m,15.70 m,Yes
 WA,Lynnwood,AMC Alderwood Mall 16 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.70 m,19.20 m,Yes
 WA,Seattle,"Boeing IMAX, Pacific Science Center",1.43:1,IMAX GT Laser,1.43:1,No,18.10 m,24.40 m,Yes
 WA,Seattle,Regal Thornton Place & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
-WA,Tukwila,AMC Southcenter 16 & IMAX,1.90:1,XT LASER,1.90:1,No,8.70 m,15.80 m,Yes
+WA,Tukwila,AMC Southcenter 16 & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,8.70 m,15.80 m,Yes
