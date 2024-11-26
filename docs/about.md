@@ -12,15 +12,13 @@ This site exists to provide a consolidated place to hold the lists, freely acces
 
 ## Where can I find the source files?
 
-The code and CommonMark files used to generate this site are available on GitHub: [imaxguide](https://github.com/r-imax/imaxguide).
+The code and CommonMark files used to generate this site are available on GitHub: [imaxguide](https://github.com/r-imax/imaxguide). The information to build those files comes from several people, with an extra special thanks to [u/NickLandis](https://www.reddit.com/user/NickLandis/).
 
 ## How can I help?
 
 Suggestions and corrections are always accepted. You can reach me on Reddit ([u/anthonylavado](https://www.reddit.com/user/anthonylavado/)), Mastodon ([@anthonylavado:social.bonifacelabs.ca](https://social.bonifacelabs.ca/@anthonylavado)), or by e-mail (updates [AT] 143190.xyz).
 
 If you have comments or concerns that are **not** related to updating information, please send those to admin [AT] 143190.xyz.
-
-A lot has changed since May. I'll need help updating it all.
 
 Thanks,
 Anthony
