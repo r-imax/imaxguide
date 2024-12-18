@@ -1,23 +1,23 @@
 City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
-Archamps,Gaumont Archamps & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,82 ft 0.25 in,45 ft 11.18 in,Yes
-Aubiere,Pathe Cine Dome Aubiere & IMAX,1.90:1,IMAX CoLa,1.90:1,No,62 ft 4.03 in,33 ft 10.69 in,Yes
-Conflans-Sainte-Honorine,Pathe Conflans & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,82 ft 0.25 in,48 ft 2.74 in,Yes
+Archamps,Gaumont Archamps & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,45 ft 11.18 in,82 ft 0.25 in,Yes
+Aubiere,Pathe Cine Dome Aubiere & IMAX,1.90:1,IMAX CoLa,1.90:1,No,33 ft 10.69 in,62 ft 4.03 in,Yes
+Conflans-Sainte-Honorine,Pathe Conflans & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,48 ft 2.74 in,82 ft 0.25 in,Yes
 Grenoble,Pathe Grenoble & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
-Ivry-sur-Seine,Cinema Pathe Quai d'Ivry & IMAX,1.90:1,IMAX CoLa,1.90:1,No,68 ft 10.77 in,36 ft 1.07 in,Yes
-La Valette-du-Var,Pathe La Valette & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,79 ft 11.84 in,44 ft 10.19 in,Yes
-Les Pennes Mirabeau,Pathe Plan de Campagne & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,82 ft 0.25 in,49 ft 2.55 in,Yes
+Ivry-sur-Seine,Cinema Pathe Quai d'Ivry & IMAX,1.90:1,IMAX CoLa,1.90:1,No,36 ft 1.07 in,68 ft 10.77 in,Yes
+La Valette-du-Var,Pathe La Valette & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,44 ft 10.19 in,79 ft 11.84 in,Yes
+Les Pennes Mirabeau,Pathe Plan de Campagne & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,49 ft 2.55 in,82 ft 0.25 in,Yes
 Lieusaint,Pathé Carré Sénart & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
-Marne-la-Vallée,Gaumont Disney Village & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,84 ft 3.81 in,48 ft 6.68 in,Yes
-Montpellier,Gaumont Montpellier Multiplexe & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,73 ft 5.5 in,54 ft 11.84 in,Yes
-Nîmes,Kinepolis Nimes & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,56 ft 3.98 in,30 ft 4.17 in,Yes
-Paris,La Geode,Dome 1.43:1,IMAX Dome with Laser,No,No,77 ft 9.07 in,56 ft 9.1 in,Unk
-Poitiers,Futuroscope - Kinemax IMAX Theatre,1.43:1,IMAX GT Laser,1.43:1,No,89 ft 2.87 in,70 ft 2.52 in,No
-Rouen,Gaumont Rouen Grand Quevilly & IMAX,1.90:1,IMAX CoLa,1.90:1,No,66 ft 7.21 in,34 ft 3.42 in,Yes
-Saran,Pathe Saran & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,72 ft 2.14 in,39 ft 4.44 in,Yes
-Thillois,Gaumont Parc Millesime & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,72 ft 2.14 in,39 ft 4.44 in,Yes
-Toulouse,Cinema Gaumont Labège & IMAX,1.90:1,IMAX CoLa,1.90:1,No,82 ft 0.25 in,49 ft 2.55 in,Yes
-Toulouse,IMAX Cite de l'Espace,1.43:1,IMAX GT Laser,1.43:1,No,70 ft 6.46 in,57 ft 4.98 in,No
-Tours,Cine Loire & IMAX,1.90:1,IMAX CoLa,1.90:1,No,61 ft 4.22 in,34 ft 5.39 in,Yes
+Marne-la-Vallée,Gaumont Disney Village & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,48 ft 6.68 in,84 ft 3.81 in,Yes
+Montpellier,Gaumont Montpellier Multiplexe & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,54 ft 11.84 in,73 ft 5.5 in,Yes
+Nîmes,Kinepolis Nimes & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,30 ft 4.17 in,56 ft 3.98 in,Yes
+Paris,La Geode,Dome 1.43:1,IMAX Dome with Laser,No,No,56 ft 9.1 in,77 ft 9.07 in,Unk
+Poitiers,Futuroscope - Arthur the 4D Adventure,Dome 1.43:1,No,No,IMAX Dome 15/70 mm 3D,82 ft 0.25 in,0 ft 0.0 in,No
+Poitiers,Futuroscope - Kinemax IMAX Theatre,1.43:1,IMAX GT Laser,1.43:1,No,70 ft 2.52 in,89 ft 2.87 in,No
+Rouen,Gaumont Rouen Grand Quevilly & IMAX,1.90:1,IMAX CoLa,1.90:1,No,34 ft 3.42 in,66 ft 7.21 in,Yes
+Saran,Pathe Saran & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,39 ft 4.44 in,72 ft 2.14 in,Yes
+Thillois,Gaumont Parc Millesime & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,39 ft 4.44 in,72 ft 2.14 in,Yes
+Toulouse,Cinema Gaumont Labège & IMAX,1.90:1,IMAX CoLa,1.90:1,No,49 ft 2.55 in,82 ft 0.25 in,Yes
+Toulouse,IMAX Cite de l'Espace,1.43:1,IMAX GT Laser,1.43:1,No,57 ft 4.98 in,70 ft 6.46 in,No
+Tours,Cine Loire & IMAX,1.90:1,IMAX CoLa,1.90:1,No,34 ft 5.39 in,61 ft 4.22 in,Yes
 Valenciennes,Pathe Valenciennes & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
-Vaulx-en-Velin,Cinema Pathe Carre de Soie & IMAX,1.90:1,IMAX CoLa,1.90:1,No,58 ft 8.72 in,32 ft 4.98 in,Yes
-Poitiers,Futuroscope - Arthur the 4D Adventure,Dome 1.43:1,No,No,IMAX Dome 15/70 mm 3D,0 ft 0.0 in,82 ft 0.25 in,No
+Vaulx-en-Velin,Cinema Pathe Carre de Soie & IMAX,1.90:1,IMAX CoLa,1.90:1,No,32 ft 4.98 in,58 ft 8.72 in,Yes

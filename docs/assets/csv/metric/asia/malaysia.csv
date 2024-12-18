@@ -1,8 +1,8 @@
 Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
 Kuala Lumpur,Kuala Lumpur,"Aurum Theatre, The Exchange TRX & IMAX",1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
 Kuala Lumpur,Kuala Lumpur,GSC KL East Mall,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Kuala Lumpur,Kuala Lumpur,TGV Pavilion Bukit Jalil & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,20.88 m,11.08 m,Yes
-Kuala Lumpur,Kuala Lumpur,TGV Sunway Velocity & IMAX,1.43:1,IMAX CoLa,1.90:1,No,25.90 m,19.40 m,Yes
+Kuala Lumpur,Kuala Lumpur,TGV Pavilion Bukit Jalil & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,11.08 m,20.88 m,Yes
+Kuala Lumpur,Kuala Lumpur,TGV Sunway Velocity & IMAX,1.43:1,IMAX CoLa,1.90:1,No,19.40 m,25.90 m,Yes
 Kuala Lumpur,Kuala Lumpur,TGV Suria KLCC & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
 Putrajaya,Putrajaya,GSC IOI City Mall & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Selangor,Petaling Jaya,TGV 1 Utama & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,22.00 m,12.50 m,Yes
+Selangor,Petaling Jaya,TGV 1 Utama & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,12.50 m,22.00 m,Yes

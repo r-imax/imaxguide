@@ -1,70 +1,70 @@
 Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
-Beijing,Chaoyang,Beijing Emperor Center & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.19 m,11.76 m,Yes
-Beijing,Chaoyang,Beijing Fangyuanli ID Mall Bona & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.92 m,10.9 m,Unk
-Beijing,Chaoyang,China National Film Museum & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,30.17 m,19.51 m,Unk
-Beijing,Chaoyang,"IMAX 3D, China Science & Technology Museum",1.43:1,N/A,N/A,IMAX GT3D 15/70 mm,29.58 m,21.93 m,Unk
-Beijing,Chaoyang,"IMAX Dome, China Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,30 m,0 m,Unk
-Beijing,Fangshan,Beijing Fangshan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.85 m,11.76 m,Unk
-Beijing,Haidian,Beijing Qinghe CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,16.48 m,8.31 m,Unk
-Beijing,Shijingshan,Beijing Shijingshan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.22 m,12.68 m,Unk
+Beijing,Chaoyang,Beijing Emperor Center & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.76 m,22.19 m,Yes
+Beijing,Chaoyang,Beijing Fangyuanli ID Mall Bona & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.9 m,20.92 m,Unk
+Beijing,Chaoyang,China National Film Museum & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,19.51 m,30.17 m,Unk
+Beijing,Chaoyang,"IMAX 3D, China Science & Technology Museum",1.43:1,N/A,N/A,IMAX GT3D 15/70 mm,21.93 m,29.58 m,Unk
+Beijing,Chaoyang,"IMAX Dome, China Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,30 m,Unk
+Beijing,Fangshan,Beijing Fangshan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.76 m,22.85 m,Unk
+Beijing,Haidian,Beijing Qinghe CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.31 m,16.48 m,Unk
+Beijing,Shijingshan,Beijing Shijingshan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.68 m,23.22 m,Unk
 Beijing,Tongzhou,Universal Beijing Resort Universal City Walk & IMAX,N/A,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
-Chongqing,Jiangbei,"IMAX, Chongqing Science & Technology Museum",1.43:1,N/A,N/A,IMAX SR 15/70 mm,22.00 m,16.00 m,Unk
-Chongqing,Yuzhong,"IMAX Dome, Chongqing Children's Museum",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,18 m,0 m,Unk
-Fujian,Fuzhou,Fuzhou Strait Culture Art Center Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.39 m,10.59 m,Unk
-Fujian,Xiamen,Xiamen Huli Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.18 m,10.40 m,Unk
-Guangdong,Dongguan,Dongguan Wanda & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,32.06 m,19.51 m,Unk
-Guangdong,Dongguan,"IMAX Dome, Dongguan Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,18 m,0 m,Unk
-Guangdong,Guangzhou,Guangzhou New Park Mei Ah & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.55 m,12.31 m,Unk
+Chongqing,Jiangbei,"IMAX, Chongqing Science & Technology Museum",1.43:1,N/A,N/A,IMAX SR 15/70 mm,16.00 m,22.00 m,Unk
+Chongqing,Yuzhong,"IMAX Dome, Chongqing Children's Museum",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,0 m,18 m,Unk
+Fujian,Fuzhou,Fuzhou Strait Culture Art Center Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.59 m,20.39 m,Unk
+Fujian,Xiamen,Xiamen Huli Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.40 m,20.18 m,Unk
+Guangdong,Dongguan,Dongguan Wanda & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,19.51 m,32.06 m,Unk
+Guangdong,Dongguan,"IMAX Dome, Dongguan Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,18 m,Unk
+Guangdong,Guangzhou,Guangzhou New Park Mei Ah & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.31 m,23.55 m,Unk
 Guangdong,Guangzhou,Guangzhou Rock Square Flying & IMAX,N/A,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
 Guangdong,Maoming,Maoming Donghui & IMAX,N/A,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
-Guangdong,Shenzhen,Shenzhen One Avenue CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.85 m,11.76 m,Unk
-Guangdong,Shenzhen,Shenzhen Maxland Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.74 m,11.80 m,Unk
-Guangdong,Shenzhen,Shenzhen PAFC Mall Emperor & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.80 m,11.00 m,Unk
+Guangdong,Shenzhen,Shenzhen One Avenue CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.76 m,22.85 m,Unk
+Guangdong,Shenzhen,Shenzhen Maxland Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.80 m,22.74 m,Unk
+Guangdong,Shenzhen,Shenzhen PAFC Mall Emperor & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.00 m,20.80 m,Unk
 Guangdong,Shenzhen,Shenzhen Longgang Tian An MixC & IMAX,N/A,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
-Guangxi,Nanning,Nanning Qingxiu Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.76 m,11.67 m,Unk
-Guizhou,Guiyang,Guiyang The Future Ark Cross & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,32.16 m,18.17 m,Unk
-Guizhou,Guiyang,Guiyang Incity CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.96 m,11.94 m,Unk
-Guizhou,Guiyang,Guiyang Zhongda Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,18.92 m,9.91 m,Unk
-Hebei,Shijiazhuang,Shijiazhuang MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,25.07 m,13.90 m,Unk
-Heilongjiang,Daqing,"IMAX, Da Qing Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,18 m,0 m,Unk
-Heilongjiang,Harbin,Haxi Wanda Plaza IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.54 m,11.49 m,Unk
-Heilongjiang,Harbin,Harbin Tai Lai Era & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,28.65 m,21.30 m,Unk
+Guangxi,Nanning,Nanning Qingxiu Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.67 m,22.76 m,Unk
+Guizhou,Guiyang,Guiyang The Future Ark Cross & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,18.17 m,32.16 m,Unk
+Guizhou,Guiyang,Guiyang Incity CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.94 m,22.96 m,Unk
+Guizhou,Guiyang,Guiyang Zhongda Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.91 m,18.92 m,Unk
+Hebei,Shijiazhuang,Shijiazhuang MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.90 m,25.07 m,Unk
+Heilongjiang,Daqing,"IMAX, Da Qing Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,0 m,18 m,Unk
+Heilongjiang,Harbin,Haxi Wanda Plaza IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.49 m,20.54 m,Unk
+Heilongjiang,Harbin,Harbin Tai Lai Era & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,21.30 m,28.65 m,Unk
 Heilongjiang,Harbin,Harbin MixC & IMAX,N/A,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
 Heilongjiang,Harbin,"IMAX, Heilongjiang Science & Technology Center",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,0 m,0 m,Unk
-Henan,Zhengzhou,Zhengzhou Yoyo Park CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.60 m,10.64 m,Unk
-Henan,Zhengzhou,Zhengzhou Wanda Erqi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,21.30 m,11.70 m,Unk
-Hubei,Wuhan,Wuhan Wushang Moore & IMAX,1.90:1,IMAX CoLa,1.90:1,No,21.34 m,11.10 m,Unk
+Henan,Zhengzhou,Zhengzhou Yoyo Park CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.64 m,20.60 m,Unk
+Henan,Zhengzhou,Zhengzhou Wanda Erqi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.70 m,21.30 m,Unk
+Hubei,Wuhan,Wuhan Wushang Moore & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.10 m,21.34 m,Unk
 Hubei,Wuhan,Wuhan Wushang Dream Plaza Moore & IMAX,N/A,IMAX CoLa,N/A,No,0 m,0 m,Unk
 Hunan,Changsha,Changsha MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Unk
-Hunan,Changsha,Changsha Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.42 m,11.51 m,Unk
-Inner Mongolia,Hohhot,Hohhot East Xinhua Road Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,21.24 m,10.87 m,Unk
+Hunan,Changsha,Changsha Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.51 m,22.42 m,Unk
+Inner Mongolia,Hohhot,Hohhot East Xinhua Road Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.87 m,21.24 m,Unk
 Jiangsu,Jingjiang City,Jingjiang In City CGV & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Unk
-Jiangsu,Nanjing,Nanjing Unimall Omnijoi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,21.92 m,11.45 m,Unk
-Jiangsu,Nanjing,"IMAX, Nanjing Juvenile Science & Technology Center",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,21 m,0 m,Unk
-Jiangsu,Suzhou,Kunshan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.84 m,12.30 m,Unk
-Jiangsu,Wuxi,Wuxi Livat Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.22 m,12.68 m,Unk
-Jiangsu,Wuxi,Wuxi Big World & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.82 m,10.83 m,Unk
-Jiangsu,Wuxi,Wuxi Yaohan CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.34 m,10.73 m,Unk
-Jiangsu,Wuxi,Wuxi Jiangnan Joy City Big World & IMAX,1.90:1,IMAX CoLa,1.90:1,No,25.00 m,13.00 m,Unk
-Jiangxi,Nanchang,Nanchang MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,17.98 m,9.44 m,Unk
-Liaoning,Dalian,Dalian Jingkai Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.01 m,11.51 m,Unk
-Liaoning,Shenyang,Shenyang Olympic Wanda IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.19 m,11.61 m,Unk
-Liaoning,Shenyang,"IMAX, Liaoning Science & Technology Museum",1.43:1,IMAX GT Laser,1.43:1,No,28.98 m,22.00 m,Unk
-Shandong,Jinan,Jinan Gaoxin Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.02 m,11.85 m,Unk
-Shandong,Jinan,Jinan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.85 m,11.73 m,Unk
+Jiangsu,Nanjing,Nanjing Unimall Omnijoi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.45 m,21.92 m,Unk
+Jiangsu,Nanjing,"IMAX, Nanjing Juvenile Science & Technology Center",Dome 1.43:1,N/A,N/A,IMAX SR Dome 15/70 mm,0 m,21 m,Unk
+Jiangsu,Suzhou,Kunshan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.30 m,23.84 m,Unk
+Jiangsu,Wuxi,Wuxi Livat Jinyi & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.68 m,23.22 m,Unk
+Jiangsu,Wuxi,Wuxi Big World & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.83 m,20.82 m,Unk
+Jiangsu,Wuxi,Wuxi Yaohan CGV & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.73 m,20.34 m,Unk
+Jiangsu,Wuxi,Wuxi Jiangnan Joy City Big World & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.00 m,25.00 m,Unk
+Jiangxi,Nanchang,Nanchang MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.44 m,17.98 m,Unk
+Liaoning,Dalian,Dalian Jingkai Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.51 m,22.01 m,Unk
+Liaoning,Shenyang,Shenyang Olympic Wanda IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.61 m,22.19 m,Unk
+Liaoning,Shenyang,"IMAX, Liaoning Science & Technology Museum",1.43:1,IMAX GT Laser,1.43:1,No,22.00 m,28.98 m,Unk
+Shandong,Jinan,Jinan Gaoxin Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.85 m,23.02 m,Unk
+Shandong,Jinan,Jinan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.73 m,22.85 m,Unk
 Shandong,Jinan,Shandong Science & Technology Museum,N/A,IMAX GT Laser,N/A,No,0 m,0 m,Unk
-Shandong,Qingdao,Qingdao Wanda CBD Cinema IMAX,1.90:1,IMAX CoLa,1.90:1,No,21.20 m,11.00 m,Unk
-Shanghai,Baoshan,Wanda Shanghai Baoshan & IMAX,1.90:1,IMAX CoLa,1.90:1,No,20.05 m,10.48 m,Unk
-Shanghai,Hongkou,Jinyi Cinema & IMAX,1.90:1,IMAX CoLa,1.90:1,No,17.82 m,8.44 m,Unk
-Shanghai,Huangpu,Shanghai One East Palace & IMAX,1.90:1,IMAX CoLa,1.90:1,No,19.49 m,10.11 m,Unk
-Shanghai,Jing'an,Shanghai Daning IMIX Park Hoyts & IMAX,1.90:1,IMAX CoLa,1.90:1,No,25.88 m,13.46 m,Unk
-Shanghai,Jinshan,Shanghai Jinshan Wanda & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,23.16 m,12.10 m,Unk
-Shanghai,Pudong,"IMAX Dome, Shanghai Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,23.0 m,0 m,Unk
-Shanghai,Pudong,"IMAX 3D, Shanghai Science & Technology Museum",1.43:1,N/A,N/A,IMAX GT3D 15/70 mm,24.3 m, 18.3 m,Unk
-Shanxi,Taiyuan,Taiyuan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,26.51 m,14.06 m,Unk
-Shanxi,Taiyuan,Taiyuan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.85 m,11.86 m,Unk
-Sichuan,Chengdu,Chengdu MixC Ph2 Broadway & IMAX,1.90:1,IMAX CoLa,1.90:1,No,24.52 m,12.80 m,Unk
-Sichuan,Chengdu,Chengdu Shin Kong Plaza Emperor & IMAX,1.90:1,IMAX CoLa,1.90:1,No,23.87 m,12.46 m,Unk
-Yunnan,Kunming,Kunming Xishan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22.13 m,11.66 m,Unk
-Yunnan,Kunming,Kunming Panxing Dadu LLC & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,23.10 m,17.37 m,Unk
-Zhejiang,Ningbo,Ningbo MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,25.88 m,13.92 m,Unk
+Shandong,Qingdao,Qingdao Wanda CBD Cinema IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.00 m,21.20 m,Unk
+Shanghai,Baoshan,Wanda Shanghai Baoshan & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.48 m,20.05 m,Unk
+Shanghai,Hongkou,Jinyi Cinema & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.44 m,17.82 m,Unk
+Shanghai,Huangpu,Shanghai One East Palace & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.11 m,19.49 m,Unk
+Shanghai,Jing'an,Shanghai Daning IMIX Park Hoyts & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.46 m,25.88 m,Unk
+Shanghai,Jinshan,Shanghai Jinshan Wanda & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,12.10 m,23.16 m,Unk
+Shanghai,Pudong,"IMAX Dome, Shanghai Science & Technology Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,23.0 m,Unk
+Shanghai,Pudong,"IMAX 3D, Shanghai Science & Technology Museum",1.43:1,N/A,N/A,IMAX GT3D 15/70 mm, 18.3 m,24.3 m,Unk
+Shanxi,Taiyuan,Taiyuan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,14.06 m,26.51 m,Unk
+Shanxi,Taiyuan,Taiyuan MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.86 m,22.85 m,Unk
+Sichuan,Chengdu,Chengdu MixC Ph2 Broadway & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.80 m,24.52 m,Unk
+Sichuan,Chengdu,Chengdu Shin Kong Plaza Emperor & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.46 m,23.87 m,Unk
+Yunnan,Kunming,Kunming Xishan Wanda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.66 m,22.13 m,Unk
+Yunnan,Kunming,Kunming Panxing Dadu LLC & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,17.37 m,23.10 m,Unk
+Zhejiang,Ningbo,Ningbo MixC & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.92 m,25.88 m,Unk
