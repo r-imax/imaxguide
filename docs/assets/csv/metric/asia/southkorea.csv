@@ -1,10 +1,17 @@
 Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
+Gyeonggi,Goyang-si,CGV Ilsan & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.50 m,21.00 m,Yes
 Gyeonggi,Hwaseong,CGV Dongtan & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Gyeonggi,Pyeongtaek,CGV Pyeongtaek & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
+Gyeonggi,Incheon,CGV Incheon & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.10 m,16.80 m,Yes
+Gyeonggi,Pyeongtaek,CGV Pyeongtaek & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,7.80 m,14.20 m,Yes
 Gyeonggi,Seoul,CGV Apgujeong & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,9.00 m,16.00 m,Yes
 Gyeonggi,Seoul,CGV Yeongdeungpo & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
 Gyeonggi,Seoul,CGV Yongsan I-Park Mall & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,22.40 m,31.00 m,Yes
+Gyeonggi,Seoul,CGV Wangsipini & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.30 m,22.00 m,Yes
 Gyeonggi,Suwon,CGV Gwangyo & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.00 m,20.00 m,Yes
-Hoseo,Cheonan,CGV Cheonon Pentaport & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
+Honam,Suncheon,CGV Suncheon Shindae & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,9.50 m,18.60 m,Yes
+Hoseo,Cheonan,CGV Cheonon Pentaport & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,7.50 m,13.50 m,Yes
+Hoseo,Cheonan,CGV Cheonon Terminal & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,8.40 m,15.60 m,Yes
 Hoseo,Daejeon,CGV Daejeon Terminal & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,8.50 m,16.00 m,Yes
+Yeongnam,Busan,CGV Centum City & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,15.90 m, 30 m,Yes
 Yeongnam,Daegu,CGV Daegu Spectrum City & IMAX,1.90:1,IMAX CoLa,1.90:1,No,12.60 m,21.30 m,Yes
+Yeongnam,Ulsan,CGV Ulsan Samsan & IMAX,1.90:1,IMAX CoLa,1.90:1,No,14.10 m,24.40 m,Yes
