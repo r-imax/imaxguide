@@ -5,6 +5,7 @@ AZ,Phoenix,AMC Deer Valley 30 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,28 ft 6.52 in,51
 AZ,Phoenix,AMC DINE-IN Desert Ridge 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
 AZ,Tempe,Harkins Arizona Mills 25 & IMAX,1.43:1,IMAX Digital,1.90:1,IMAX GT3D 15/70 mm,60 ft 0.47 in,80 ft 0.63 in,Yes
 CA,Aliso Viejo,Regal Edwards Aliso Viejo & IMAX,1.90:1,IMAX CoLa,1.90:1,No,34 ft 1.45 in,54 ft 1.61 in,Yes
+CA,Alhambra,Regal Edwards Alhambra Renaissance & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,33 ft 1.64 in,50 ft 6.3 in,Yes
 CA,Arcadia,AMC Santa Anita 16 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,33 ft 1.64 in,52 ft 1.98 in,Yes
 CA,Balboa Park,Fleet Science Center,Dome 1.43:1,IMAX Laser for Dome,Dome 1.43:1,No,0 ft 0.0 in,76 ft 1.39 in,Yes
 CA,Burbank,AMC Burbank 16 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,37 ft 0.88 in,62 ft 11.91 in,Yes
@@ -14,16 +15,16 @@ CA,Daly City,Cinemark Century Daly City 20 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 f
 CA,Dublin,Regal Hacienda Crossings & IMAX,1.43:1,IMAX CoLa,1.90:1,IMAX GT3D 15/70 mm,55 ft 9.29 in,76 ft 4.54 in,Yes
 CA,Emeryville,AMC Bay Street 16 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,28 ft 10.46 in,49 ft 6.49 in,Yes
 CA,Fresno,Regal Edwards Fresno & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
-CA,Glendale,AMC The Americana at Brand 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
+CA,Glendale,AMC The Americana at Brand 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,27 ft 6.71 in,51 ft 6.11 in,Yes
 CA,Hollywood,TCL Chinese Theatres IMAX,1.90:1,IMAX GT Laser,1.90:1,"IMAX SR 15/70 mm, (2D Only)(Temporary)",45 ft 11.18 in,94 ft 1.92 in,Yes
 CA,Inglewood,Cinepolis Luxury Cinemas Inglewood & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
 CA,Irvine,Regal Edwards Irvine Spectrum & IMAX,1.43:1,IMAX CoLa,1.90:1,IMAX 15/70 mm,67 ft 7.02 in,87 ft 11.12 in,Yes
 CA,Long Beach,Regal Edwards Long Beach & IMAX,1.90:1,IMAX CoLa,1.90:1,No,33 ft 9.51 in,54 ft 1.61 in,Yes
 CA,Los Angeles,AMC Century City 15 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,31 ft 2.02 in,55 ft 1.42 in,Yes
-CA,Los Angeles,AMC The Grove & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
+CA,Los Angeles,AMC The Grove & IMAX,1.90:1,IMAX CoLa,1.90:1,No,31 ft 5.95 in,55 ft 5.35 in,Yes
 CA,Los Angeles,"IMAX, California Science Center",1.43:1,IMAX GT Laser,1.43:1,No,66 ft 7.21 in,89 ft 10.74 in,No
 CA,Merced,Regal Hollywood Merced & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
-CA,Montclair,AMC DINE-IN Montclair 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
+CA,Montclair,AMC DINE-IN Montclair 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,29 ft 11.84 in,56 ft 8.31 in,Yes
 CA,National City,AMC Plaza Bonita 14 & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,32 ft 9.7 in,50 ft 10.24 in,Yes
 CA,Newark,AMC Newpark 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,33 ft 5.57 in,60 ft 8.35 in,Yes
 CA,Ontario,Regal Edwards Ontario Palace & IMAX,1.43:1,IMAX CoLa,1.90:1,IMAX GT3D 15/70 mm,66 ft 11.15 in,88 ft 10.93 in,Yes
@@ -40,7 +41,7 @@ CA,Stockton,Regal Stockton City Centre & IMAX,1.90:1,IMAX CoLa,1.90:1,No,31 ft 5
 CA,Sunnyvale,AMC DINE-IN Sunnyvale 12 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
 CA,Temecula,Regal Edwards Temecula & IMAX,1.90:1,IMAX CoLa,1.90:1,No,33 ft 5.57 in,50 ft 10.24 in,Yes
 CA,Torrance,AMC Del Amo 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,32 ft 1.83 in,52 ft 1.98 in,Yes
-CA,Tustin,AMC Tustin @ The District & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
+CA,Tustin,AMC Tustin @ The District & IMAX,1.90:1,IMAX CoLa,1.90:1,No,22 ft 8.44 in,46 ft 8.24 in,Yes
 CA,Universal City,Universal Cinema AMC at CityWalk Hollywood & IMAX,1.43:1,IMAX GT Laser,1.43:1,IMAX GT3D 15/70 mm,58 ft 0.85 in,79 ft 0.82 in,Yes
 CA,Yorba Linda,Regal Yorba Linda & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
 CO,Broomfield,AMC Flatiron Crossing 14 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 ft 0.0 in,0 ft 0.0 in,Yes
