@@ -1,8 +1,9 @@
-Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
-Northern Thailand, Chiang Mai,"Krungsri IMAX, Major Cineplex Central/Festival Chiangmai",1.90:1,IMAX CoLa,1.90:1,No,15.00 m,26.00 m,Yes
+Region,Province/City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
+Northern Thailand, Chiang Mai,"TEMPORARILY CLOSED - IMAX Major Cineplex Central Festival Chiangmai ",1.90:1,IMAX CoLa,1.90:1,No,15.00 m,26.00 m,Yes
 Central Thailand,Bangkok,"Bangkapi Cineplex & IMAX",1.90:1,IMAX Laser XT,1.90:1,No,11.90 m,22.50 m,Yes
 Central Thailand,Bangkok,"IMAX at ICON CINECONIC, ICONSIAM",1.90:1,IMAX CoLa,1.90:1,No,13.70 m,25.70 m,Yes
-Central Thailand,Bangkok,"Krungsri IMAX, Major Cineplex Ratchayothin",1.43:1,IMAX CoLa,1.90:1,No,17.00 m,24.00 m,Yes
+Central Thailand,Bangkik,"IMAX Major Cineplex Central Pinklao",1.90:1,IMAX Laser XT,1.90:1,No,9.00 m,17.00 m,Yes
+Central Thailand,Bangkok,"IMAX Major Cineplex Ratchayothin",1.43:1,IMAX CoLa,1.90:1,No,17.00 m,24.00 m,Yes
 Central Thailand,Bangkok,"Krungsri IMAX, Paragon Cineplex",1.43:1,IMAX CoLa,1.90:1,No,19.90 m,27.30 m,Yes
 Central Thailand,Bangkok,"Toyota IMAX Theatre, Quartier Cine-Art",1.90:1,IMAX CoLa,1.90:1,No,13.70 m,25.70 m,Yes
 Central Thailand,Nonthaburi,Esplanade Cineplex Ngamwongwan-Khaerai & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,11.00 m,22.00 m,Yes
