@@ -1,5 +1,7 @@
 # Oceania
 
+Need help understanding projector types? See "[Projector Information](../projectorinformation.md)".
+
 ## Australia
 
 === "Metric"
