@@ -24,14 +24,6 @@
 === "Imperial"
     {{ read_csv('docs/assets/csv/imperial/americas/brazil.csv', keep_default_na=False) }}
 
-## Colombia
-
-=== "Metric"
-    {{ read_csv('docs/assets/csv/metric/americas/colombia.csv', keep_default_na=False) }}
-
-=== "Imperial"
-    {{ read_csv('docs/assets/csv/imperial/americas/colombia.csv', keep_default_na=False) }}
-
 ## Canada
 
 === "Metric"
@@ -39,6 +31,14 @@
 
 === "Imperial"
     {{ read_csv('docs/assets/csv/imperial/americas/canada.csv', keep_default_na=False) }}
+
+## Colombia
+
+=== "Metric"
+    {{ read_csv('docs/assets/csv/metric/americas/colombia.csv', keep_default_na=False) }}
+
+=== "Imperial"
+    {{ read_csv('docs/assets/csv/imperial/americas/colombia.csv', keep_default_na=False) }}
 
 ## Curaçao
 
