@@ -1,0 +1,30 @@
+Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
+Chūbu,Gifu,Aeon Kakamigahara & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Chūbu,Nagoya,109 Cinemas Nagoya & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.80 m,17.10 m,Yes
+Chūbu,Shizuoka Prefecture,Cinema Sunshine Lalaport Numazu & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Chūgoku,Okayama,Aeon Okayama & IMAX,,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Hokkaido,Hokkaido,United Cinemas Sapporo Factory & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.90 m,24.90 m,Yes
+Kansai,Nara Prefecture,IMAX Cinema Sunshine Yamatokoriyama,1.90:1,IMAX CoLa,1.90:1,No,9.60 m,18.30 m,Yes
+Kansai,Osaka,AEON Shijonawate & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kansai,Osaka,109 Cinemas Osaka Expocity & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,18.00 m,26.00 m,Yes
+Kantō,Chiba,AEON Ichikawa Myoden & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Chiba,TOHO Nagareyama-Takanomori & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Chiba,Aeon Makuhari Shin-toshin & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Chiyodaku,TOHO Cinemas Hibiya & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Fujisawa City,109 Cinemas Shonan & IMAX,1.90:1,IMAX CoLa,1.90:1,No,11.50 m,20.60 m,Yes
+Kantō,Kawasaki,109 Cinemas Kawasaki & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.00 m,17.40 m,Yes
+Kantō,Kiba,109 Cinemas Kiba & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.10 m,18.00 m,Yes
+Kantō,Matsudo,United Cinemas Matsudo & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Nerima-ku,United Cinemas Toshimaen & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.50 m,19.00 m,Yes
+Kantō,Saitama,109 Cinemas Shobu & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.80 m,18.40 m,Yes
+Kantō,Tokyo,109 Cinemas Futako Tamagawa & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.90 m,18.50 m,Yes
+Kantō,Tokyo,109 Cinemas Grandberry Mall & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.60 m,16.80 m,Yes
+Kantō,Tokyo,Aeon Chofu & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kantō,Tokyo,Toho Cinemas Shinjyuku & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.9 m,19.5 m,Yes
+Kantō,Tokyo,Grand Cinema Sunshine & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,18.9 m,25.8 m,Yes
+Kantō,Tsuchiura-shi,Cinema Sunshine Tsuchiura & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,9.2 m,16.7 m,Yes
+Kantō,Urawa,United Cinemas Urawa & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.2 m,18.2 m,Yes
+Kyushu,Fukuoka,Aeon Fukuoka & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
+Kyushu,Hakata-ku,United Cinemas Canal City 13 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.40 m,15.10 m,Yes
+Kyushu,Kagoshima,"Space Theatre, Municipal Science Hall",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,20.50 m,Unk
+Okinawa,Okinawa,United Cinemas Parco City Urasoe & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
