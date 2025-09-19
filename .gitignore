@@ -25,6 +25,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+bin/
+lib/
+pyvenv.cfg
 
 # Node.js
 node_modules/
