@@ -310,7 +310,7 @@ class TheatreDatabase {
         
         // Populate projector filter (not dependent on location)
         const projectors = [...new Set(this.allTheatres.map(t => t['Digital Projector']).filter(Boolean))].sort();
-        this.populateSelect('projectorFilter', projectors);
+        this.populateSelect('projectorFilter', projectors, 'All Projectors');
     }
 
     // Populate filters for regional pages

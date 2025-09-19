@@ -10,80 +10,11 @@
     <link rel="stylesheet" href="../css/database.css">
     
     <style>
-        /* Page-specific styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-            padding: 40px 0;
-        }
-        
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .nav-breadcrumb {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 30px;
-            color: white;
-        }
-        
-        .nav-breadcrumb a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-        
-        .nav-breadcrumb a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        
-        .content {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            overflow: hidden;
-        }
-        
-        .content-header {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 30px;
-            border-bottom: 1px solid #dee2e6;
-        }
-        
-        .content-body {
-            padding: 40px;
+        /* Page-specific content styling */
+        .content-grid {
+            display: grid;
+            gap: 25px;
+            margin: 25px 0;
         }
         
         .projector-grid {
@@ -93,15 +24,17 @@
         }
         
         .projector-card {
-            border: 2px solid #e9ecef;
+            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 25px;
             transition: all 0.3s ease;
         }
         
         .projector-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+            border-color: #0072CE;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 114, 206, 0.4);
         }
         
         .projector-header {
@@ -120,18 +53,18 @@
         }
         
         .projector-title h3 {
-            color: #333;
+            color: #ffffff;
             margin-bottom: 5px;
         }
         
         .projector-title .aliases {
             font-size: 0.9rem;
-            color: #666;
+            color: #B8B8B8;
             font-style: italic;
         }
         
         .projector-badge {
-            background: #667eea;
+            background: #0072CE;
             color: white;
             padding: 4px 12px;
             border-radius: 20px;
@@ -140,15 +73,16 @@
         }
         
         .projector-description {
-            color: #555;
+            color: #E5E5E5;
             margin-bottom: 20px;
         }
         
         .projector-specs {
-            background: #f8f9fa;
+            background: linear-gradient(145deg, #252545 0%, #1a1a2e 100%);
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .spec-row {
@@ -163,16 +97,16 @@
         
         .spec-label {
             font-weight: 500;
-            color: #333;
+            color: #ffffff;
         }
         
         .spec-value {
-            color: #666;
+            color: #B8B8B8;
         }
         
         .projector-notes {
             font-size: 0.9rem;
-            color: #777;
+            color: #B8B8B8;
             font-style: italic;
         }
         
@@ -182,73 +116,68 @@
         
         .category-title {
             font-size: 1.8rem;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #0072CE;
         }
         
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
-            background: white;
+            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .comparison-table th,
         .comparison-table td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .comparison-table th {
-            background: #f8f9fa;
+            background: linear-gradient(145deg, #252545 0%, #1a1a2e 100%);
             font-weight: 600;
-            color: #333;
+            color: #ffffff;
+        }
+        
+        .comparison-table td {
+            color: #E5E5E5;
         }
         
         .comparison-table tr:hover {
-            background: #f8f9fa;
+            background: rgba(0, 114, 206, 0.1);
         }
         
-        .footer-nav {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
+        .highlight-box {
+            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
+            border-left: 4px solid #0072CE;
             padding: 20px;
-            margin-top: 30px;
-            text-align: center;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            display: inline-block;
+        .highlight-box h4 {
+            color: #0072CE;
+            margin-bottom: 15px;
         }
         
-        .footer-nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .highlight-box ul {
+            color: #E5E5E5;
+            line-height: 1.8;
+        }
+        
+        .highlight-box li strong {
+            color: #ffffff;
         }
         
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .content-body {
-                padding: 20px;
-            }
-            
             .projector-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -271,403 +200,49 @@
 </head>
 <body>
     <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span>/</span>
+            <span>📽️ Projector Information</span>
+        </div>
+
         <div class="header">
             <h1>📽️ IMAX Projector Information</h1>
             <p>Technical guide to IMAX projection systems and equipment</p>
         </div>
-        
-        <div class="nav-breadcrumb">
-            <a href="../index.html">🏠 Home</a> / 📽️ Projector Information
-        </div>
-        
-        <div class="content">
-            <div class="content-header">
-                <h2>Understanding IMAX Projector Types</h2>
-                <p>IMAX theatres use various projection technologies, from cutting-edge laser systems to traditional film projectors. This guide explains the different types and their capabilities.</p>
-            </div>
-            
-            <div class="content-body">
-                <div class="category-section">
-                    <h2 class="category-title">🔴 Digital Laser Projectors</h2>
-                    
-                    <div class="projector-grid">
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🎯</span>
-                                <div class="projector-title">
-                                    <h3>IMAX GT Laser</h3>
-                                    <div class="aliases">Also known as: GT Dual Laser, Dual Laser, DL2</div>
-                                </div>
-                                <span class="projector-badge">Premium</span>
-                            </div>
-                            <div class="projector-description">
-                                The flagship of IMAX laser projection. The only IMAX laser system capable of projecting on the full 1.43:1 IMAX screen format. Represents the pinnacle of digital IMAX technology.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Maximum Aspect Ratio:</span>
-                                    <span class="spec-value">1.43:1 (Full IMAX)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Screen Compatibility:</span>
-                                    <span class="spec-value">Large format screens</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Brightness:</span>
-                                    <span class="spec-value">Superior laser illumination</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation:</span>
-                                    <span class="spec-value">Premium venues</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Often installed alongside 15/70mm film systems in premium venues. Some installations may use GT Laser for larger 1.90:1 screens above certain widths.
-                            </div>
-                        </div>
-                        
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🟠</span>
-                                <div class="projector-title">
-                                    <h3>IMAX Laser (Single)</h3>
-                                    <div class="aliases">Also known as: CoLa, IMAX with Laser, Single Laser</div>
-                                </div>
-                                <span class="projector-badge">Standard</span>
-                            </div>
-                            <div class="projector-description">
-                                The most widespread IMAX laser projector. Delivers excellent image quality for 1.90:1 content and represents the standard for new IMAX installations worldwide.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Maximum Aspect Ratio:</span>
-                                    <span class="spec-value">1.90:1</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Screen Compatibility:</span>
-                                    <span class="spec-value">Standard IMAX screens</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Brightness:</span>
-                                    <span class="spec-value">High laser illumination</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation:</span>
-                                    <span class="spec-value">Most common type</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Found in most modern IMAX installations. Some venues have this system alongside working 15/70mm film projection.
-                            </div>
-                        </div>
-                        
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🟡</span>
-                                <div class="projector-title">
-                                    <h3>IMAX Laser XT</h3>
-                                    <div class="aliases">Latest generation single laser</div>
-                                </div>
-                                <span class="projector-badge">Latest</span>
-                            </div>
-                            <div class="projector-description">
-                                The newest model of IMAX single laser projector. Typically used for refurbishments of existing venues and new installations with the latest IMAX 12.0 sound system.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Maximum Aspect Ratio:</span>
-                                    <span class="spec-value">1.90:1</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Generation:</span>
-                                    <span class="spec-value">Latest (2020+)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Sound System:</span>
-                                    <span class="spec-value">Often paired with IMAX 12.0</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Use Case:</span>
-                                    <span class="spec-value">Refurbishments & new installs</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Represents the evolution of single laser technology with improved efficiency and performance characteristics.
-                            </div>
-                        </div>
-                        
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🔵</span>
-                                <div class="projector-title">
-                                    <h3>IMAX Laser for Dome</h3>
-                                    <div class="aliases">Dome laser projection</div>
-                                </div>
-                                <span class="projector-badge">Specialized</span>
-                            </div>
-                            <div class="projector-description">
-                                Specialized laser projector designed for dome theatres. Provides immersive planetarium-style projection for unique IMAX dome installations.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Screen Type:</span>
-                                    <span class="spec-value">Dome (hemispherical)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Aspect Ratio:</span>
-                                    <span class="spec-value">Dome 1.43:1</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation:</span>
-                                    <span class="spec-value">Science centers, museums</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Content:</span>
-                                    <span class="spec-value">Educational & commercial</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Unique projection geometry requires specialized content and provides 360-degree immersive experience.
-                            </div>
-                        </div>
-                    </div>
+
+        <div class="controls">
+            <div class="content-section">
+                <div class="section-header">
+                    <span class="section-icon">🚧</span>
+                    <h2 class="section-title">Coming Soon</h2>
                 </div>
-                
-                <div class="category-section">
-                    <h2 class="category-title">🟨 Legacy Digital Projectors</h2>
-                    
-                    <div class="projector-grid">
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">⚫</span>
-                                <div class="projector-title">
-                                    <h3>IMAX Digital (Xenon)</h3>
-                                    <div class="aliases">Original digital IMAX system</div>
-                                </div>
-                                <span class="projector-badge">Legacy</span>
-                            </div>
-                            <div class="projector-description">
-                                The first generation of digital IMAX projectors using xenon lamp illumination. Lower quality compared to laser systems but still in use at many installations.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Illumination:</span>
-                                    <span class="spec-value">Xenon lamp</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Maximum Aspect Ratio:</span>
-                                    <span class="spec-value">1.90:1</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Brightness:</span>
-                                    <span class="spec-value">Lower than laser systems</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Status:</span>
-                                    <span class="spec-value">Being replaced by laser</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Often used alongside film projectors in older installations. Many venues are upgrading to laser systems.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-section">
-                    <h2 class="category-title">🎞️ Film Projectors</h2>
-                    
-                    <div class="projector-grid">
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🎬</span>
-                                <div class="projector-title">
-                                    <h3>IMAX SR 15/70mm</h3>
-                                    <div class="aliases">Standard film projection</div>
-                                </div>
-                                <span class="projector-badge">Classic</span>
-                            </div>
-                            <div class="projector-description">
-                                Traditional IMAX film projector using 15-perforation 70mm film. Provides the classic IMAX experience with unmatched image quality for film content.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Film Format:</span>
-                                    <span class="spec-value">15/70mm horizontal</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Image Quality:</span>
-                                    <span class="spec-value">Exceptional resolution</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Content:</span>
-                                    <span class="spec-value">Film-shot IMAX content</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Maintenance:</span>
-                                    <span class="spec-value">High complexity</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Many installations retain film capability alongside digital projection for special presentations.
-                            </div>
-                        </div>
-                        
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🌐</span>
-                                <div class="projector-title">
-                                    <h3>IMAX GT Dome 15/70mm</h3>
-                                    <div class="aliases">Dome film projection</div>
-                                </div>
-                                <span class="projector-badge">Specialized</span>
-                            </div>
-                            <div class="projector-description">
-                                Film projector designed for dome installations. Uses special optics to project 15/70mm film content onto hemispherical dome screens.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Screen Type:</span>
-                                    <span class="spec-value">Dome (hemispherical)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Film Format:</span>
-                                    <span class="spec-value">15/70mm dome</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Content:</span>
-                                    <span class="spec-value">Dome-specific films</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Venues:</span>
-                                    <span class="spec-value">Science centers, planetariums</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Requires specially shot dome content. Many dome venues are transitioning to digital laser systems.
-                            </div>
-                        </div>
-                        
-                        <div class="projector-card">
-                            <div class="projector-header">
-                                <span class="projector-icon">🕶️</span>
-                                <div class="projector-title">
-                                    <h3>IMAX GT3D 15/70mm</h3>
-                                    <div class="aliases">3D film projection</div>
-                                </div>
-                                <span class="projector-badge">3D Film</span>
-                            </div>
-                            <div class="projector-description">
-                                Specialized film projector capable of 3D presentation using polarized glasses. Represents the premium film-based 3D IMAX experience.
-                            </div>
-                            <div class="projector-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">3D Technology:</span>
-                                    <span class="spec-value">Polarized film-based</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Film Format:</span>
-                                    <span class="spec-value">15/70mm stereo</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Image Quality:</span>
-                                    <span class="spec-value">Premium 3D experience</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Status:</span>
-                                    <span class="spec-value">Rare, being replaced</span>
-                                </div>
-                            </div>
-                            <div class="projector-notes">
-                                Increasingly rare as most 3D content is now delivered digitally through laser projectors.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="category-section">
-                    <h2 class="category-title">📊 Quick Comparison</h2>
-                    
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Projector Type</th>
-                                <th>Max Aspect Ratio</th>
-                                <th>Technology</th>
-                                <th>Image Quality</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>IMAX GT Laser</strong></td>
-                                <td>1.43:1</td>
-                                <td>Dual Laser</td>
-                                <td>Excellent</td>
-                                <td>Premium</td>
-                            </tr>
-                            <tr>
-                                <td><strong>IMAX Laser (CoLa)</strong></td>
-                                <td>1.90:1</td>
-                                <td>Single Laser</td>
-                                <td>Very Good</td>
-                                <td>Standard</td>
-                            </tr>
-                            <tr>
-                                <td><strong>IMAX Laser XT</strong></td>
-                                <td>1.90:1</td>
-                                <td>Single Laser</td>
-                                <td>Very Good</td>
-                                <td>Latest</td>
-                            </tr>
-                            <tr>
-                                <td><strong>IMAX Digital</strong></td>
-                                <td>1.90:1</td>
-                                <td>Xenon Lamp</td>
-                                <td>Good</td>
-                                <td>Legacy</td>
-                            </tr>
-                            <tr>
-                                <td><strong>IMAX SR 15/70mm</strong></td>
-                                <td>1.43:1</td>
-                                <td>Film</td>
-                                <td>Exceptional</td>
-                                <td>Classic</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Dome Systems</strong></td>
-                                <td>Dome 1.43:1</td>
-                                <td>Various</td>
-                                <td>Specialized</td>
-                                <td>Niche</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="category-section">
-                    <h2 class="category-title">💡 Key Takeaways</h2>
-                    
-                    <div style="background: #f8f9fa; border-radius: 12px; padding: 25px; margin: 20px 0;">
-                        <h4 style="margin-bottom: 15px; color: #333;">Understanding IMAX Projection:</h4>
-                        <ul style="color: #555; line-height: 1.8;">
-                            <li><strong>GT Laser</strong> is the premium choice for large format screens and can display full 1.43:1 content</li>
-                            <li><strong>Single Laser (CoLa/XT)</strong> systems are the current standard for most IMAX installations</li>
-                            <li><strong>Film projection</strong> still offers exceptional quality for specially shot IMAX content</li>
-                            <li><strong>Dome systems</strong> provide unique immersive experiences in specialized venues</li>
-                            <li><strong>Legacy digital</strong> systems are gradually being replaced by laser technology</li>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h4>📽️ IMAX Projector Information Guide</h4>
+                        <p>We're currently working on a comprehensive guide to IMAX projector types and technical specifications. This section will include detailed information about:</p>
+                        <ul>
+                            <li><strong>Digital Laser Systems</strong> - GT Laser, Single Laser, and Laser XT projectors</li>
+                            <li><strong>Film Projectors</strong> - 15/70mm systems and their capabilities</li>
+                            <li><strong>Legacy Digital</strong> - Xenon-based projection systems</li>
+                            <li><strong>Dome Systems</strong> - Specialized projection typically used in Science Centers. Formerly known as OMNIMAX.</li>
+                            <li><strong>Technical Specifications</strong> - Detailed comparisons and capabilities</li>
                         </ul>
+                        <p style="margin-top: 20px; color: #B8B8B8;">Check back soon for the complete projector information guide!</p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="footer-nav">
-            <a href="../index.html">🏠 Home</a>
-            <a href="../database.html">🗃️ Global Database</a>
-            <a href="../americas.html">🌎 Americas</a>
-            <a href="../asia.html">🌏 Asia</a>
-            <a href="../about/">ℹ️ About Project</a>
+        <div class="footer">
+            <div class="footer-links">
+                <a href="../index.html">🏠 Home</a>
+                <a href="../database.html">🗃️ Global Database</a>
+                <a href="../americas.html">🌎 Americas</a>
+                <a href="../asia.html">🌏 Asia</a>
+                <a href="../about/">ℹ️ About</a>
+                <a href="https://github.com/r-imax/imaxguide" target="_blank">📂 GitHub Repository</a>
+            </div>
         </div>
     </div>
 </body>

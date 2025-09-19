@@ -18,29 +18,63 @@
         }
         
         .stat-card {
-            background: linear-gradient(145deg, #0072CE, #005BA3);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
+            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 114, 206, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 114, 206, 0.1) 0%, rgba(0, 136, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 16px;
+        }
+        
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(0, 114, 206, 0.2);
         }
         
         .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #4a9bd1;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
         }
         
         .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 0.95rem;
+            color: #B8B8B8;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin: 25px 0;
         }
@@ -166,89 +200,36 @@
                             <p>Developers can contribute code improvements, new features, or help with data processing.</p>
                         </div>
                     </div>
-                    
-                    <h3>Data We Need:</h3>
-                    <ul>
-                        <li><strong>Theatre Information:</strong> Name, exact location, opening date</li>
-                        <li><strong>Screen Details:</strong> Height, width, aspect ratio, screen type</li>
-                        <li><strong>Projection Equipment:</strong> Digital projector model, film capability</li>
-                        <li><strong>Operational Status:</strong> Commercial films, educational content, current status</li>
-                    </ul>
-                    
-                    <h3>Contribution Guidelines:</h3>
-                    <ul>
-                        <li>Verify information from multiple reliable sources</li>
-                        <li>Include sources when submitting data</li>
-                        <li>Follow the CSV format for bulk submissions</li>
-                        <li>Respect copyright and photography restrictions</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="content-section">
-                <div class="section-header">
-                    <span class="section-icon">🔧</span>
-                    <h2 class="section-title">Technical Details</h2>
-                </div>
-                <div class="section-content">
-                    <p>The IMAX Theatre Database is built with modern web technologies and designed for performance, accessibility, and maintainability.</p>
-                    
-                    <h3>Technology Stack:</h3>
-                    <ul>
-                        <li><strong>Frontend:</strong> HTML5, CSS3, vanilla JavaScript (ES6+) - no framework dependencies</li>
-                        <li><strong>Libraries:</strong> PapaParse for CSV processing, modern browser APIs</li>
-                        <li><strong>Data Storage:</strong> Regional CSV files organized by continent for better performance</li>
-                        <li><strong>Deployment:</strong> GitHub Pages with automated GitHub Actions workflows</li>
-                        <li><strong>Validation:</strong> Comprehensive Python validation pipeline ensuring data quality</li>
-                        <li><strong>Architecture:</strong> Modular JavaScript classes with shared functionality across pages</li>
-                    </ul>
-                    
-                    <h3>Key Features:</h3>
-                    <ul>
-                        <li><strong>Enhanced Filtering System:</strong> Screen size (Large >20m, Standard 15-20m, Small <15m), format (1.43:1 True IMAX, 1.90:1 IMAX Digital, Dome), and film capability filters</li>
-                        <li><strong>Regional Pages:</strong> Dedicated pages for Americas, Europe, Asia, Africa, and Oceania with optimized performance</li>
-                        <li><strong>Hierarchical Filtering:</strong> Cascading region → country → province/state → city filter system</li>
-                        <li><strong>Real-time Search:</strong> Instant search across all theatre data fields</li>
-                        <li><strong>Data Export:</strong> CSV export functionality with timestamps</li>
-                        <li><strong>Responsive Design:</strong> Mobile-first design that works perfectly on all devices</li>
-                        <li><strong>Unit Conversion:</strong> Metric/Imperial toggle for international accessibility</li>
-                        <li><strong>Performance Optimized:</strong> Data caching and lazy loading for fast browsing</li>
-                    </ul>
-                    
-                    <h3>Data Format:</h3>
-                    <p>Theatre data is stored in CSV format with standardized columns. This approach makes it easy for contributors to add data using spreadsheet applications and ensures the database remains maintainable by the community.</p>
                 </div>
             </div>
             
             <div class="content-section">
                 <div class="section-header">
                     <span class="section-icon">📜</span>
-                    <h2 class="section-title">License & Credits</h2>
+                    <h2 class="section-title">License, Support & Legal</h2>
                 </div>
                 <div class="section-content">
-                    <h3>Open Source License:</h3>
-                    <p>This project is licensed under the MIT License, ensuring it remains free and open for anyone to use, modify, and distribute. The database and all associated code are available on GitHub.</p>
-                    
-                    <h3>Acknowledgments:</h3>
-                    <ul>
-                        <li><strong>IMAX Corporation</strong> - For creating the IMAX experience and technology</li>
-                        <li><strong>Wikipedia Contributors</strong> - Original IMAX venue list provided foundation data</li>
-                        <li><strong>Theatre Operators</strong> - Cinema chains and independent theatres for location data</li>
-                        <li><strong>Community Contributors</strong> - Volunteers who help maintain and expand the database</li>
-                        <li><strong>Open Source Libraries</strong> - jQuery, DataTables, PapaParse, and other tools</li>
-                    </ul>
-                    
-                    <h3>Disclaimer:</h3>
-                    <div class="highlight-box">
-                        <strong>Important:</strong> This is an unofficial database maintained by volunteers. Theatre information may change frequently. Please verify details with individual theatres before visiting. This project is not affiliated with IMAX Corporation.
+                    <div class="contribute-grid">
+                        <div class="contribute-card">
+                            <h4>📄 Open Source License</h4>
+                            <p>This project is licensed under the MIT License, ensuring it remains free and open for anyone to use, modify, and distribute. The database and all associated code are available on GitHub.</p>
+                        </div>
+                        
+                        <div class="contribute-card">
+                            <h4>🐛 Report Issues</h4>
+                            <p>Found a bug or have a feature request? <a href="https://github.com/r-imax/imaxguide/issues/" target="_blank" style="color: #0072CE;">Submit an issue on GitHub</a> to help us improve the database.</p>
+                        </div>
+                        
+                        <div class="contribute-card">
+                            <h4>📧 Data Submissions</h4>
+                            <p>Have theatre data or corrections? Send your submissions via email to updates[AT]143190.xyz with detailed information and sources.</p>
+                        </div>
+                        
+                        <div class="contribute-card">
+                            <h4>⚠️ Important Disclaimer</h4>
+                            <p>This is an unofficial database maintained by volunteers. Theatre information may change frequently. Please verify details with individual theatres before visiting. This project is not affiliated with IMAX Corporation.</p>
+                        </div>
                     </div>
-                    
-                    <h3>Contact & Support:</h3>
-                    <ul>
-                        <li><strong>GitHub Issues:</strong> Report bugs or request features</li>
-                        <li><strong>GitHub Discussions:</strong> Community discussion and questions</li>
-                        <li><strong>Email:</strong> For private inquiries and data submissions</li>
-                    </ul>
                 </div>
             </div>
         </div>
