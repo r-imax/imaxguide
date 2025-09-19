@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test - IMAX Database</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: #e0e0e0; }
+        .result { margin: 10px 0; padding: 10px; background: #252545; border-radius: 8px; }
+        .metrics { background: #0d1421; padding: 20px; border-radius: 12px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>IMAX Database Performance Test</h1>
+    <div id="status">Starting performance test...</div>
+    <div class="metrics">
+        <h3>Performance Metrics</h3>
+        <div id="metrics"></div>
+    </div>
+    <div id="results"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script>
+        class PerformanceTest {
+            constructor() {
+                this.startTime = performance.now();
+                this.csvFiles = window.CSV_FILES || [];
+                this.totalFiles = 0;
+                this.loadedFiles = 0;
+                this.totalRows = 0;
+                this.errors = 0;
+            }
+
+            async runTest() {
+                const statusDiv = document.getElementById('status');
+                const resultsDiv = document.getElementById('results');
+                const metricsDiv = document.getElementById('metrics');
+
+                statusDiv.textContent = 'Loading CSV configuration...';
+                
+                // Load CSV_FILES from theatre-database.js
+                try {
+                    const response = await fetch('js/theatre-database.js');
+                    const jsContent = await response.text();
+                    eval(jsContent.split('// Global CSV files configuration')[1]);
+                } catch (error) {
+                    this.csvFiles = [
+                        { filename: 'americas/canada.csv', region: 'Americas', country: 'Canada' },
+                        { filename: 'americas/unitedstates.csv', region: 'Americas', country: 'United States' },
+                        { filename: 'asia/china.csv', region: 'Asia', country: 'China' },
+                        { filename: 'europe/germany.csv', region: 'Europe', country: 'Germany' },
+                        { filename: 'oceania/australia.csv', region: 'Oceania', country: 'Australia' }
+                    ];
+                }
+
+                this.totalFiles = this.csvFiles.length;
+                statusDiv.textContent = `Found ${this.totalFiles} CSV files to test...`;
+
+                const loadStartTime = performance.now();
+
+                // Test sequential loading (current approach)
+                await this.testSequentialLoading();
+                const sequentialTime = performance.now() - loadStartTime;
+
+                // Test concurrent loading
+                const concurrentStartTime = performance.now();
+                await this.testConcurrentLoading();
+                const concurrentTime = performance.now() - concurrentStartTime;
+
+                // Display results
+                const totalTime = performance.now() - this.startTime;
+                
+                metricsDiv.innerHTML = `
+                    <strong>Test Results:</strong><br>
+                    Total Files: ${this.totalFiles}<br>
+                    Successfully Loaded: ${this.loadedFiles}<br>
+                    Total Rows: ${this.totalRows}<br>
+                    Errors: ${this.errors}<br><br>
+                    <strong>Loading Times:</strong><br>
+                    Sequential Loading: ${sequentialTime.toFixed(2)}ms<br>
+                    Concurrent Loading: ${concurrentTime.toFixed(2)}ms<br>
+                    Speed Improvement: ${(sequentialTime / concurrentTime).toFixed(2)}x faster<br><br>
+                    <strong>Memory Usage:</strong><br>
+                    ${this.getMemoryUsage()}
+                `;
+
+                statusDiv.textContent = `Performance test completed in ${totalTime.toFixed(2)}ms`;
+            }
+
+            async testSequentialLoading() {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML += '<div class="result"><h4>Sequential Loading Test</h4></div>';
+                
+                this.loadedFiles = 0;
+                this.totalRows = 0;
+                this.errors = 0;
+
+                for (let i = 0; i < Math.min(10, this.csvFiles.length); i++) {
+                    const file = this.csvFiles[i];
+                    try {
+                        const startTime = performance.now();
+                        const response = await fetch(`data/${file.filename}`);
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        
+                        const csvText = await response.text();
+                        const parseResult = Papa.parse(csvText, { header: true });
+                        
+                        const loadTime = performance.now() - startTime;
+                        this.loadedFiles++;
+                        this.totalRows += parseResult.data.length;
+                        
+                        resultsDiv.innerHTML += `<div class="result">✅ ${file.filename}: ${parseResult.data.length} rows (${loadTime.toFixed(2)}ms)</div>`;
+                    } catch (error) {
+                        this.errors++;
+                        resultsDiv.innerHTML += `<div class="result">❌ ${file.filename}: ${error.message}</div>`;
+                    }
+                }
+            }
+
+            async testConcurrentLoading() {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML += '<div class="result"><h4>Concurrent Loading Test</h4></div>';
+                
+                const promises = this.csvFiles.slice(0, Math.min(10, this.csvFiles.length)).map(async (file) => {
+                    try {
+                        const startTime = performance.now();
+                        const response = await fetch(`data/${file.filename}`);
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                        
+                        const csvText = await response.text();
+                        const parseResult = Papa.parse(csvText, { header: true });
+                        const loadTime = performance.now() - startTime;
+                        
+                        return {
+                            success: true,
+                            filename: file.filename,
+                            rows: parseResult.data.length,
+                            loadTime
+                        };
+                    } catch (error) {
+                        return {
+                            success: false,
+                            filename: file.filename,
+                            error: error.message
+                        };
+                    }
+                });
+
+                const results = await Promise.all(promises);
+                results.forEach(result => {
+                    if (result.success) {
+                        resultsDiv.innerHTML += `<div class="result">⚡ ${result.filename}: ${result.rows} rows (${result.loadTime.toFixed(2)}ms)</div>`;
+                    } else {
+                        resultsDiv.innerHTML += `<div class="result">❌ ${result.filename}: ${result.error}</div>`;
+                    }
+                });
+            }
+
+            getMemoryUsage() {
+                if (performance.memory) {
+                    const used = (performance.memory.usedJSHeapSize / 1024 / 1024).toFixed(2);
+                    const total = (performance.memory.totalJSHeapSize / 1024 / 1024).toFixed(2);
+                    return `${used} MB used of ${total} MB allocated`;
+                }
+                return 'Memory usage not available';
+            }
+        }
+
+        // Run test when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const test = new PerformanceTest();
+            await test.runTest();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Africa IMAX Theatres...</title>
+    <script src="../../js/theatre-database.js"></script>
+</head>
+<body>
+    <div style="text-align: center; padding: 2rem; font-family: Arial, sans-serif;">
+        <h2>Redirecting to Africa IMAX Theatres...</h2>
+        <p>If you are not redirected automatically, <a href="../../africa.html">click here</a>.</p>
+    </div>
+    
+    <script>
+        // Initialize redirect system
+        document.addEventListener('DOMContentLoaded', function() {
+            const database = new TheatreDatabase({});
+            database.handleUrlRedirects();
+            
+            // Fallback redirect if the automatic one doesn't work
+            setTimeout(function() {
+                window.location.replace('../../africa.html' + window.location.search + window.location.hash);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

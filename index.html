@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAX Theatre Database - Worldwide Directory</title>
+    <meta name="description" content="Comprehensive database of IMAX theatres worldwide with detailed information on screen sizes, projector types, and technical specifications.">
+    
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎬 IMAX Theatre Database</h1>
+            <p class="subtitle">Worldwide Directory</p>
+            <p class="description">
+               Explore detailed information about IMAX theatres around the globe, including screen specifications, projector types, and technical capabilities. From classic 15/70mm film to cutting-edge laser projection systems.
+            </p>
+        </header>
+
+        <main>
+            <section class="nav-grid">
+                <a href="database.html" class="nav-card">
+                    <span class="icon">🗃️</span>
+                    <h3>Theatre Database</h3>
+                    <p>Interactive database with sorting, filtering, and search capabilities. View detailed specifications for IMAX theatres worldwide.</p>
+                    <div class="meta">195+ theatres • Updated regularly</div>
+                </a>
+                
+                <a href="projectorinformation/" class="nav-card">
+                    <span class="icon">📽️</span>
+                    <h3>Projector Information</h3>
+                    <p>Comprehensive guide to IMAX projector types, from IMAX GT Laser to legacy film systems. Understand the technology behind the experience.</p>
+                    <div class="meta">Technical specifications • Equipment guides</div>
+                </a>
+                
+                <a href="wiki/" class="nav-card coming-soon">
+                    <span class="icon">📚</span>
+                    <h3>IMAX Wiki</h3>
+                    <p>Detailed articles about IMAX technology, history, and specific theatre installations. Deep dives into the science and engineering behind IMAX.</p>
+                    <div class="meta">Articles • Guides • History</div>
+                </a>
+            </section>
+
+            <section class="about-section">
+                <a href="about/" class="about-card">
+                    <span class="icon">ℹ️</span>
+                    <div class="about-content">
+                        <h3>About & Contributing</h3>
+                        <p>Learn about this project and how you can contribute theatre data, corrections, or improvements to build the database.</p>
+                        <div class="meta">Open source • Community driven</div>
+                    </div>
+                </a>
+            </section>
+
+            <section class="regions-section">
+                <h2>🌍 Explore by Region</h2>
+                <div class="regions-grid">
+                    <a href="americas.html" class="region-card">
+                        <span class="flag">🌎</span>
+                        <h4>Americas</h4>
+                        <div class="count">10 countries</div>
+                    </a>
+                    
+                    <a href="europe.html" class="region-card">
+                        <span class="flag">🌍</span>
+                        <h4>Europe</h4>
+                        <div class="count">19 countries</div>
+                    </a>
+                    
+                    <a href="asia.html" class="region-card">
+                        <span class="flag">🌏</span>
+                        <h4>Asia</h4>
+                        <div class="count">18 countries</div>
+                    </a>
+                    
+                    <a href="africa.html" class="region-card">
+                        <span class="flag">🌍</span>
+                        <h4>Africa</h4>
+                        <div class="count">2 countries</div>
+                    </a>
+                    
+                    <a href="oceania.html" class="region-card">
+                        <span class="flag">🌏</span>
+                        <h4>Oceania</h4>
+                        <div class="count">2 countries</div>
+                    </a>
+                    
+                    <a href="database.html" class="region-card">
+                        <span class="flag">🌐</span>
+                        <h4>View All</h4>
+                        <div class="count">Complete database</div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>This project is not affiliated with IMAX Corporation. Theatre information may change frequently.</p>
+            <div class="footer-links">
+                <a href="https://github.com/your-username/imax-theatre-data" target="_blank">📂 GitHub Repository</a>
+                <a href="about/">📧 Contact & Support</a>
+                <a href="about/">📄 License (MIT)</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Handle legacy URL compatibility from homepage
+        function handleLegacyHomepageUrls() {
+            const path = window.location.pathname;
+            const hash = window.location.hash.substring(1); // Remove the # symbol
+            
+            // Handle regional legacy URLs
+            if (path.includes('/regions/')) {
+                if (path.includes('/regions/americas/')) {
+                    const newUrl = hash ? `database.html?region=americas&country=${hash}` : 'database.html?region=americas';
+                    window.location.href = newUrl;
+                    return;
+                }
+                
+                if (path.includes('/regions/europe/')) {
+                    const newUrl = hash ? `database.html?region=europe&country=${hash}` : 'database.html?region=europe';
+                    window.location.href = newUrl;
+                    return;
+                }
+                
+                if (path.includes('/regions/asia/')) {
+                    const newUrl = hash ? `database.html?region=asia&country=${hash}` : 'database.html?region=asia';
+                    window.location.href = newUrl;
+                    return;
+                }
+            }
+        }
+        
+        // Run compatibility check on page load
+        document.addEventListener('DOMContentLoaded', handleLegacyHomepageUrls);
+    </script>
+</body>
+</html>

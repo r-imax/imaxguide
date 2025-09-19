@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAX Theatre Database - Interactive Browser</title>
+    <meta name="description" content="Browse and search IMAX theatres worldwide with advanced filtering by projector type, screen format, and location.">
+    
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/database.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">🏠 Home</a>
+            <span>/</span>
+            <span>🗃️ Theatre Database</span>
+        </div>
+
+        <div class="header">
+            <h1>🗃️ IMAX Theatre Database</h1>
+            <p>Interactive browser with advanced filtering and search capabilities - Global comparison view</p>
+            <div class="region-nav">
+                <p style="margin: 10px 0; color: #B8B8B8; font-size: 14px;">
+                    For faster browsing, visit regional pages: 
+                    <a href="americas.html" style="color: #0072CE;">Americas</a>, 
+                    <a href="europe.html" style="color: #0072CE;">Europe</a>, 
+                    <a href="asia.html" style="color: #0072CE;">Asia</a>, 
+                    <a href="africa.html" style="color: #0072CE;">Africa</a>, 
+                    <a href="oceania.html" style="color: #0072CE;">Oceania</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="regionSelect">Region:</label>
+                    <select id="regionSelect">
+                        <option value="">Select region</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="countrySelect">Country/Area:</label>
+                    <select id="countrySelect">
+                        <option value="">All Countries/Areas</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="adminDivSelect">Province/State:</label>
+                    <select id="adminDivSelect">
+                        <option value="">All Provinces/States</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="citySelect">City:</label>
+                    <select id="citySelect">
+                        <option value="">All Cities</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="projectorFilter">Projector Type:</label>
+                    <select id="projectorFilter">
+                        <option value="">All Projectors</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="screenSizeFilter">Screen Size:</label>
+                    <select id="screenSizeFilter">
+                        <option value="">All Sizes</option>
+                        <option value="large">Large (&gt;20m)</option>
+                        <option value="standard">Standard (15-20m)</option>
+                        <option value="small">Small (&lt;15m)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="aspectRatioFilter">Format:</label>
+                    <select id="aspectRatioFilter">
+                        <option value="">All Formats</option>
+                        <option value="true-imax">1.43:1 True IMAX</option>
+                        <option value="imax-digital">1.90:1 IMAX Digital</option>
+                        <option value="dome">Dome</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="filmCapabilityFilter">Film Capability:</label>
+                    <select id="filmCapabilityFilter">
+                        <option value="">All Theatres</option>
+                        <option value="film-capable">Film-Capable</option>
+                        <option value="digital-only">Digital-Only</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="searchInput">Search:</label>
+                    <input type="text" id="searchInput" placeholder="Search theatres, cities, locations...">
+                </div>
+                
+                <div class="control-group">
+                    <label>Units:</label>
+                    <div class="unit-toggle">
+                        <div class="unit-option active" data-unit="metric">Metric</div>
+                        <div class="unit-option" data-unit="imperial">Imperial</div>
+                    </div>
+                </div>
+                
+                <button id="exportBtn" class="btn">📊 Export CSV</button>
+                <button id="resetBtn" class="btn btn-secondary">🔄 Reset Filters</button>
+            </div>
+        </div>
+
+        <div id="loadingDiv" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading IMAX theatre data...</p>
+        </div>
+
+        <div id="statsContainer" class="stats" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-value" id="totalTheatres">0</div>
+                <div class="stat-label">Total Theatres</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalRegions">0</div>
+                <div class="stat-label">Regions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalCities">0</div>
+                <div class="stat-label">Cities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="projectorTypes">0</div>
+                <div class="stat-label">Projector Types</div>
+            </div>
+        </div>
+
+        <div id="errorDiv" class="error" style="display: none;"></div>
+
+        <div id="tableText" class="table-text" style="display: none;">← Swipe left/right to see more columns →</div>
+
+        <div id="tableContainer" class="table-container" style="display: none;">
+            <div class="table-wrapper">
+                <table id="theatreTable">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Country/Area</th>
+                            <th>Province/State</th>
+                            <th>City</th>
+                            <th>Location Name</th>
+                            <th>Screen Aspect Ratio</th>
+                            <th>Digital Projector</th>
+                            <th>Max Digital AR</th>
+                            <th>Film Projector</th>
+                            <th>Height</th>
+                            <th>Width</th>
+                            <th>Commercial Films</th>
+                        </tr>
+                    </thead>
+                    <tbody id="theatreTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>This project is not affiliated with IMAX Corporation. Theatre information may change frequently.</p>
+            <div class="footer-links">
+                <a href="https://github.com/your-username/imax-theatre-data" target="_blank">📂 GitHub Repository</a>
+                <a href="about/">📧 Contact & Support</a>
+                <a href="about/">📄 License (MIT)</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="js/theatre-database.js"></script>
+    <script>
+        // Initialize global comparison page
+        document.addEventListener('DOMContentLoaded', function() {
+            const database = new TheatreDatabase({
+                csvFiles: window.CSV_FILES,
+                region: null, // Global view - all regions
+                enableComparison: true,
+                showRegionColumn: true
+            });
+            
+            database.initialize();
+        });
+    </script>
+</body>
+</html>

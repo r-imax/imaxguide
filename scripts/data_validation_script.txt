@@ -1,0 +1,268 @@
+#!/usr/bin/env python3
+"""
+IMAX Theatre Database - Data Validation Script
+
+This script validates CSV files for the IMAX Theatre Database project.
+It checks for:
+- Required columns
+- Data format consistency
+- Missing or invalid values
+- Duplicate entries
+- Administrative division column flexibility (Province/State/Region/District)
+
+Usage:
+    python scripts/validate_data.py
+    python scripts/validate_data.py data/canada.csv
+    python scripts/validate_data.py data/canada.csv data/unitedstates.csv
+"""
+
+import csv
+import os
+import sys
+import re
+from pathlib import Path
+from typing import List, Dict, Set, Any
+
+# Required columns configuration
+REQUIRED_COLUMNS = {
+    'always_required': {
+        'City', 'Location Name', 'Screen Aspect Ratio (AR)', 
+        'Digital Projector', 'Maximum AR for digital projection',
+        'Film Projector', 'Height', 'Width', 'Commercial films shown?'
+    },
+    'administrative_division_columns': {
+        'Province', 'State', 'Region', 'District'
+    }
+}
+
+# Data validation patterns
+VALIDATION_PATTERNS = {
+    'aspect_ratio': re.compile(r'^\d+\.?\d*:\d+\.?\d*$|^Dome\s+\d+\.?\d*:\d+\.?\d*$|^Unk$|^Unknown$'),
+    'height': re.compile(r'^\d+\.?\d*\s*m$|^0\s*m$'),  # e.g., "18.29 m" or "0 m"
+    'width': re.compile(r'^\d+\.?\d*\s*m$'),           # e.g., "25.91 m"
+    'commercial': re.compile(r'^(Yes|No|Limited)$', re.IGNORECASE)
+}
+
+class DataValidator:
+    def __init__(self):
+        self.errors = []
+        self.warnings = []
+        self.stats = {
+            'files_processed': 0,
+            'total_rows': 0,
+            'errors': 0,
+            'warnings': 0
+        }
+    
+    def validate_file(self, filepath: str) -> bool:
+        """Validate a single CSV file."""
+        print(f"\n📁 Validating: {filepath}")
+        
+        if not os.path.exists(filepath):
+            self.add_error(f"File not found: {filepath}")
+            return False
+        
+        try:
+            with open(filepath, 'r', encoding='utf-8') as file:
+                # Check if file is empty
+                if os.path.getsize(filepath) == 0:
+                    self.add_error(f"File is empty: {filepath}")
+                    return False
+                
+                # Read CSV
+                csv_reader = csv.DictReader(file)
+                headers = csv_reader.fieldnames
+                
+                if not headers:
+                    self.add_error(f"No headers found in {filepath}")
+                    return False
+                
+                # Validate headers
+                self.validate_headers(headers, filepath)
+                
+                # Validate rows
+                row_count = 0
+                seen_locations = set()
+                
+                for row_num, row in enumerate(csv_reader, start=2):  # Start at 2 (header is row 1)
+                    row_count += 1
+                    self.validate_row(row, row_num, filepath)
+                    
+                    # Check for duplicates
+                    location_key = f"{row.get('City', '')}-{row.get('Location Name', '')}"
+                    if location_key in seen_locations:
+                        self.add_warning(f"Possible duplicate theatre in {filepath} row {row_num}: {location_key}")
+                    seen_locations.add(location_key)
+                
+                self.stats['files_processed'] += 1
+                self.stats['total_rows'] += row_count
+                
+                print(f"✅ Processed {row_count} rows")
+                return True
+                
+        except UnicodeDecodeError:
+            self.add_error(f"File encoding error in {filepath}. Please ensure UTF-8 encoding.")
+            return False
+        except Exception as e:
+            self.add_error(f"Error reading {filepath}: {str(e)}")
+            return False
+    
+    def validate_headers(self, headers: List[str], filepath: str):
+        """Validate CSV headers with flexible administrative division support."""
+        headers_set = set(h.strip() for h in headers if h)
+        
+        # Check for administrative division column (any one of these is acceptable)
+        admin_cols = REQUIRED_COLUMNS['administrative_division_columns']
+        found_admin_cols = admin_cols.intersection(headers_set)
+        
+        if not found_admin_cols:
+            self.add_error(f"File must have at least one administrative division column in {filepath}: {', '.join(admin_cols)}")
+        elif len(found_admin_cols) > 1:
+            self.add_warning(f"File has multiple administrative division columns in {filepath}: {', '.join(found_admin_cols)}. Consider using just one.")
+        
+        # Check for other required columns
+        missing_headers = REQUIRED_COLUMNS['always_required'] - headers_set
+        if missing_headers:
+            self.add_error(f"Missing required columns in {filepath}: {', '.join(missing_headers)}")
+        
+        # Check for extra/unexpected headers
+        expected_headers = REQUIRED_COLUMNS['always_required'] | admin_cols
+        extra_headers = headers_set - expected_headers
+        if extra_headers:
+            self.add_warning(f"Unexpected columns in {filepath}: {', '.join(extra_headers)}")
+        
+        # Log which administrative division column is being used
+        if found_admin_cols:
+            admin_col = list(found_admin_cols)[0]  # Use the first one found
+            print(f"📍 Using '{admin_col}' as administrative division column in {filepath}")
+    
+    def validate_row(self, row: Dict[str, Any], row_num: int, filepath: str):
+        """Validate a single data row."""
+        # Check for completely empty rows
+        if all(not str(value).strip() for value in row.values()):
+            self.add_warning(f"Empty row in {filepath} at line {row_num}")
+            return
+        
+        # Validate required fields
+        for field in ['City', 'Location Name']:
+            if not row.get(field, '').strip():
+                self.add_error(f"Missing {field} in {filepath} row {row_num}")
+        
+        # Validate aspect ratio format
+        aspect_ratio = row.get('Screen Aspect Ratio (AR)', '').strip()
+        if aspect_ratio and not VALIDATION_PATTERNS['aspect_ratio'].match(aspect_ratio):
+            self.add_error(f"Invalid aspect ratio format in {filepath} row {row_num}: '{aspect_ratio}'")
+        
+        # Validate dimensions
+        height = row.get('Height', '').strip()
+        if height and not VALIDATION_PATTERNS['height'].match(height):
+            self.add_error(f"Invalid height format in {filepath} row {row_num}: '{height}' (expected format: '18.29 m')")
+        
+        width = row.get('Width', '').strip()
+        if width and not VALIDATION_PATTERNS['width'].match(width):
+            self.add_error(f"Invalid width format in {filepath} row {row_num}: '{width}' (expected format: '25.91 m')")
+        
+        # Validate commercial films field
+        commercial = row.get('Commercial films shown?', '').strip()
+        if commercial and not VALIDATION_PATTERNS['commercial'].match(commercial):
+            self.add_warning(f"Non-standard commercial films value in {filepath} row {row_num}: '{commercial}' (expected: Yes/No/Limited)")
+        
+        # Check for missing projector information
+        digital_proj = row.get('Digital Projector', '').strip()
+        film_proj = row.get('Film Projector', '').strip()
+        if not digital_proj and not film_proj:
+            self.add_warning(f"No projector information in {filepath} row {row_num}")
+        
+        # Validate reasonable dimensions
+        if height and width:
+            try:
+                h_val = float(height.replace(' m', ''))
+                w_val = float(width.replace(' m', ''))
+                
+                if h_val > 50 or w_val > 50:
+                    self.add_warning(f"Unusually large dimensions in {filepath} row {row_num}: {height} x {width}")
+                elif h_val < 5 or w_val < 5:
+                    self.add_warning(f"Unusually small dimensions in {filepath} row {row_num}: {height} x {width}")
+            except ValueError:
+                pass  # Already caught by format validation above
+    
+    def add_error(self, message: str):
+        """Add an error message."""
+        self.errors.append(message)
+        self.stats['errors'] += 1
+        print(f"❌ ERROR: {message}")
+    
+    def add_warning(self, message: str):
+        """Add a warning message."""
+        self.warnings.append(message)
+        self.stats['warnings'] += 1
+        print(f"⚠️  WARNING: {message}")
+    
+    def print_summary(self):
+        """Print validation summary."""
+        print("\n" + "="*60)
+        print("📊 VALIDATION SUMMARY")
+        print("="*60)
+        print(f"Files processed: {self.stats['files_processed']}")
+        print(f"Total rows: {self.stats['total_rows']}")
+        print(f"Errors: {self.stats['errors']}")
+        print(f"Warnings: {self.stats['warnings']}")
+        
+        if self.stats['errors'] == 0 and self.stats['warnings'] == 0:
+            print("\n🎉 All files passed validation!")
+        elif self.stats['errors'] == 0:
+            print(f"\n✅ All files passed with {self.stats['warnings']} warnings")
+        else:
+            print(f"\n❌ Validation failed with {self.stats['errors']} errors and {self.stats['warnings']} warnings")
+        
+        return self.stats['errors'] == 0
+
+def find_csv_files(data_dir: str = "data") -> List[str]:
+    """Find all CSV files in the data directory."""
+    csv_files = []
+    data_path = Path(data_dir)
+    
+    if data_path.exists() and data_path.is_dir():
+        csv_files = list(data_path.glob("*.csv"))
+        csv_files = [str(f) for f in csv_files]
+    
+    return sorted(csv_files)
+
+def main():
+    """Main validation function."""
+    print("🎬 IMAX Theatre Database - Data Validation")
+    print("="*50)
+    
+    # Determine which files to validate
+    if len(sys.argv) > 1:
+        # Specific files provided as arguments
+        files_to_validate = sys.argv[1:]
+    else:
+        # Auto-discover CSV files in data directory
+        files_to_validate = find_csv_files()
+        if not files_to_validate:
+            print("❌ No CSV files found in 'data/' directory")
+            print("Usage:")
+            print("  python scripts/validate_data.py")
+            print("  python scripts/validate_data.py data/canada.csv")
+            print("  python scripts/validate_data.py data/canada.csv data/unitedstates.csv")
+            sys.exit(1)
+        
+        print(f"📁 Found {len(files_to_validate)} CSV files in data/ directory")
+    
+    # Validate files
+    validator = DataValidator()
+    success = True
+    
+    for filepath in files_to_validate:
+        if not validator.validate_file(filepath):
+            success = False
+    
+    # Print summary
+    final_success = validator.print_summary()
+    
+    # Exit with appropriate code
+    sys.exit(0 if final_success else 1)
+
+if __name__ == "__main__":
+    main()

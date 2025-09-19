@@ -1,0 +1,255 @@
+/* IMAX Theatre Database - Shared Styles */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    color: #e0e0e0;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Subtle film grain texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 204, 112, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 60px 0 40px;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0072CE, #0088ff, transparent);
+    box-shadow: 0 0 20px rgba(0, 114, 206, 0.5);
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #4a9bd1;
+    text-shadow: 0 0 30px rgba(0, 114, 206, 0.3);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.header .subtitle {
+    font-size: 1.3rem;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+.header .description {
+    font-size: 1.1rem;
+    color: #888;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.breadcrumb a {
+    color: #4a9bd1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #0072CE;
+    text-shadow: 0 0 10px rgba(0, 114, 206, 0.3);
+}
+
+.breadcrumb span {
+    color: #888;
+    margin: 0 10px;
+}
+
+/* Button styles */
+.btn {
+    padding: 12px 24px;
+    background: linear-gradient(145deg, #0072CE 0%, #0088ff 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 114, 206, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 114, 206, 0.4);
+    background: linear-gradient(145deg, #0088ff 0%, #0072CE 100%);
+}
+
+.btn-secondary {
+    background: linear-gradient(145deg, #4a4a5e 0%, #5a5a7e 100%);
+    box-shadow: 0 4px 15px rgba(74, 74, 94, 0.3);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(145deg, #5a5a7e 0%, #4a4a5e 100%);
+    box-shadow: 0 8px 25px rgba(74, 74, 94, 0.4);
+}
+
+/* Form controls */
+select, input {
+    padding: 10px 14px;
+    border: 2px solid rgba(0, 114, 206, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+    background: linear-gradient(145deg, #2a2a3e 0%, #353555 100%);
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #0072CE;
+    box-shadow: 0 0 15px rgba(0, 114, 206, 0.3);
+    background: linear-gradient(145deg, #353555 0%, #2a2a3e 100%);
+}
+
+select option {
+    background: #2a2a3e;
+    color: #e0e0e0;
+}
+
+/* Loading states */
+.loading {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #0072CE;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 15px rgba(0, 114, 206, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error states */
+.error {
+    background: linear-gradient(145deg, #4a1e1e 0%, #5a2424 100%);
+    color: #ff9999;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 153, 153, 0.3);
+    box-shadow: 0 8px 25px rgba(74, 30, 30, 0.3);
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #4a9bd1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #0072CE;
+    text-shadow: 0 0 10px rgba(0, 114, 206, 0.3);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .footer-links {
+        gap: 20px;
+    }
+}
