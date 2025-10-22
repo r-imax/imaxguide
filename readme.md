@@ -4,15 +4,28 @@ A comprehensive, open-source database of IMAX theatres worldwide with an interac
 
 ## 🎬 Features
 
-- **Enhanced Filtering System**: Screen size (Large >20m, Standard 15-20m, Small <15m), format (1.43:1 True IMAX, 1.90:1 IMAX Digital, Dome), and film capability filters
-- **Regional Pages**: Dedicated pages for Americas, Europe, Asia, Africa, and Oceania with optimized performance
+### Core Features
+
+- **Global Database Browser**: Browse all 476+ theatres worldwide from a single interface ([database.html](database.html))
+- **Regional Pages**: Dedicated pages for [Americas](americas.html), [Europe](europe.html), [Asia](asia.html), [Africa](africa.html), and [Oceania](oceania.html) with optimized performance
 - **Interactive Table**: Sort, filter, and search through IMAX theatre data with real-time results
-- **Hierarchical Filtering**: Cascading region → country → province/state → city filter system
-- **Equipment Filters**: Filter by projector type, screen format, and technical capabilities
 - **Export Functionality**: Download filtered data as CSV with timestamps
+- **Educational Resources**: [Projector information page](projector.html) explaining IMAX projection technologies
 - **Responsive Design**: Mobile-first design that works perfectly on all devices
-- **Data Quality Assured**: Comprehensive validation pipeline ensures data accuracy
 - **Open Source**: Community-driven data collection and maintenance
+
+### Advanced Filtering
+
+- **Enhanced Filtering System**: Screen size (Large >20m, Standard 15-20m, Small <15m), format (1.43:1 True IMAX, 1.90:1 IMAX Digital, Dome), and film capability filters
+- **Hierarchical Filtering**: Cascading region → country/area → province/state → city filter system prevents invalid geographical combinations
+- **Equipment Filters**: Filter by digital projector type, film capability, screen format, and technical specifications
+- **Real-time Search**: Search across all fields including location names, cities, and equipment details
+
+### Data Quality
+
+- **Comprehensive Validation Pipeline**: Python script validates all data files for consistency and accuracy
+- **Flexible Administrative Divisions**: Supports Province/State/Region/District/Prefecture/Canton/Emirate columns
+- **Standardized Format**: Consistent CSV schema across all 51 countries
 
 ## 📊 Current Data
 
@@ -33,9 +46,10 @@ A comprehensive, open-source database of IMAX theatres worldwide with an interac
 ### Setup
 
 1. **Clone this repository**
+
 ```bash
-git clone https://github.com/your-username/imax-theatre-database.git
-cd imax-theatre-database
+git clone https://github.com/r-imax/imaxguide.git
+cd imaxguide
 ```
 
 2. **Data is already included** - 51 countries with 476+ theatres in `data/` directory organized by region:
@@ -84,22 +98,46 @@ Navigate to `http://localhost:8000`
 ## 📁 Project Structure
 
 ```
-imax-theatre-data/
-├── index.html              # Main website
-├── data/                   # CSV data files
-│   ├── Canada.csv
-│   ├── United States.csv
-│   └── README.md
-├── docs/                   # Documentation
-│   └── DATA_FORMAT.md
-├── scripts/                # Utility scripts
-│   ├── validate_data.py
-│   └── process_csvs.py
-├── .github/                # GitHub Actions
-│   └── workflows/
-│       └── deploy.yml
-├── README.md
-├── .gitignore
+imaxguide/
+├── index.html              # Main landing page with navigation cards
+├── database.html           # Global theatre database browser
+├── americas.html           # Americas regional page
+├── asia.html              # Asia regional page
+├── europe.html            # Europe regional page
+├── africa.html            # Africa regional page
+├── oceania.html           # Oceania regional page
+├── about.html             # About page
+├── projector.html         # Projector information page
+├── css/                   # Organized stylesheets
+│   ├── shared.css         # Shared styles across pages
+│   ├── database.css       # Database page styles
+│   └── index.css          # Landing page styles
+├── js/                    # JavaScript modules
+│   └── theatre-database.js # Shared TheatreDatabase class
+├── data/                  # CSV data files organized by region
+│   ├── americas/
+│   │   ├── canada.csv
+│   │   ├── unitedstates.csv
+│   │   └── [8 more countries]
+│   ├── asia/
+│   │   ├── china.csv
+│   │   ├── japan.csv
+│   │   └── [16 more countries]
+│   ├── europe/
+│   │   ├── germany.csv
+│   │   ├── unitedkingdom.csv
+│   │   └── [17 more countries]
+│   ├── africa/
+│   │   ├── southafrica.csv
+│   │   └── morocco.csv
+│   └── oceania/
+│       ├── australia.csv
+│       └── newzealand.csv
+├── scripts/               # Utility scripts
+│   └── validate_data.py   # Data validation script
+├── CLAUDE.md              # Development documentation
+├── next.md                # Project roadmap and tasks
+├── readme.md
 └── LICENSE
 ```
 
@@ -128,9 +166,20 @@ We welcome contributions! Here's how you can help:
 
 ### Adding New Data
 1. Fork this repository
-2. Add your CSV file to the `data/` directory
-3. Update the `csvFiles` array in `index.html` to include your region
-4. Submit a pull request
+2. Add your CSV file to the appropriate `data/[region]/` subdirectory (e.g., `data/americas/newcountry.csv`)
+3. Update the `window.CSV_FILES` array in `js/theatre-database.js` to include your new file:
+
+   ```javascript
+   {
+     filename: '[region]/newcountry.csv',
+     region: 'Region Name',
+     country: 'Country Name',
+     adminDivisionColumn: 'State' // or Province/Region/District/null
+   }
+   ```
+
+4. Validate your data: `python scripts/validate_data.py data/[region]/newcountry.csv`
+5. Submit a pull request
 
 ### Reporting Issues
 - Theatre information is incorrect
@@ -169,9 +218,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Issues**: [GitHub Issues](https://github.com/your-username/imax-theatre-data/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/imax-theatre-data/discussions)
-- **Email**: your-email@example.com
+For questions, suggestions, or contributions:
+
+- **Issues & Bug Reports**: Use [GitHub Issues](https://github.com/r-imax/imaxguide/issues) to report problems or request features
+- **Data Corrections**: Submit a pull request with updated CSV files or open an issue with theatre details
 
 ---
 
