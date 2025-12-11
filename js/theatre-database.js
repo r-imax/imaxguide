@@ -166,10 +166,6 @@ class TheatreDatabase {
                             'Administrative Division': adminDivValue
                         };
                         
-                        if (csvConfig.adminDivisionColumn) {
-                            processedRow[csvConfig.adminDivisionColumn] = adminDivValue;
-                        }
-                        
                         return processedRow;
                     });
                     
@@ -676,7 +672,7 @@ class TheatreDatabase {
         if (totalElement) totalElement.textContent = this.filteredTheatres.length;
         
         if (regionsElement) {
-            const regions = new Set(this.filteredTheatres.map(t => t.Region));
+            const regions = new Set(this.filteredTheatres.map(t => t.Country));
             regionsElement.textContent = regions.size;
         }
         
