@@ -178,7 +178,7 @@ We welcome contributions! Here's how you can help:
    }
    ```
 
-4. Validate your data: `python scripts/validate_data.py data/[region]/newcountry.csv`
+4. Validate your data: `python scripts/validate_data.py --file data/[region]/newcountry.csv`
 5. Submit a pull request
 
 ### Reporting Issues
