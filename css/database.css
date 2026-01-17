@@ -277,6 +277,18 @@
     margin-bottom: 20px;
 }
 
+.table-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0072CE, transparent);
+    box-shadow: 0 0 10px rgba(0, 114, 206, 0.5);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
