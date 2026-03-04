@@ -537,8 +537,8 @@ class TheatreDatabase {
         if (isNaN(height) || height === 0) return false;
         
         switch (sizeFilter) {
-            case 'large': return height > 20;
-            case 'standard': return height >= 15 && height <= 20;
+            case 'large': return height >= 16;
+            case 'standard': return height >= 15 && height < 16;
             case 'small': return height < 15;
             default: return true;
         }
