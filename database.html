@@ -151,18 +151,78 @@
                 <table id="theatreTable">
                     <thead>
                         <tr>
-                            <th>Region</th>
-                            <th>Country/Area</th>
-                            <th>Province/State</th>
-                            <th>City</th>
-                            <th>Location Name</th>
-                            <th>Screen Aspect Ratio</th>
-                            <th>Digital Projector</th>
-                            <th>Max Digital AR</th>
-                            <th>Film Projector</th>
-                            <th>Height</th>
-                            <th>Width</th>
-                            <th>Commercial Films</th>
+                            <th class="sortable-column" data-sort-field="Region" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Region</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Country" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Country/Area</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Administrative Division" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Province/State</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="City" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">City</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Location Name" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Location Name</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Screen Aspect Ratio (AR)" data-sort-type="aspect-ratio">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Screen Aspect Ratio</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Digital Projector" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Digital Projector</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Maximum AR for digital projection" data-sort-type="aspect-ratio">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Max Digital AR</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Film Projector" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Film Projector</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Height" data-sort-type="dimension">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Height</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Width" data-sort-type="dimension">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Width</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
+                            <th class="sortable-column" data-sort-field="Commercial films shown?" data-sort-type="text">
+                                <button type="button" class="sort-button">
+                                    <span class="sort-label">Commercial Films</span>
+                                    <span class="sort-indicator" aria-hidden="true"></span>
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody id="theatreTableBody">
