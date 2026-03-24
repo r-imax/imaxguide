@@ -187,7 +187,7 @@ class TheatreDatabase {
     // Initialize interface after data loading
     initializeInterface() {
         this.populateFilters();
-        this.filteredTheatres = this.region ? this.allTheatres : [];
+        this.filteredTheatres = [...this.allTheatres];
         this.renderTable();
         this.updateStats();
         this.hideLoading();
@@ -811,7 +811,7 @@ class TheatreDatabase {
             this.filteredTheatres = [...this.allTheatres];
         } else {
             this.populateGlobalFilters();
-            this.filteredTheatres = [];
+            this.filteredTheatres = [...this.allTheatres];
         }
         
         this.renderTable();
