@@ -127,7 +127,7 @@
 .controls-row {
     display: flex;
     gap: 15px;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
