@@ -8,7 +8,6 @@ ehthumbs.db
 Thumbs.db
 
 # IDE and Editor Files
-.vscode/
 .idea/
 *.swp
 *.swo
