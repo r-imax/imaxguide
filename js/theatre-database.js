@@ -21,11 +21,18 @@ class TheatreDatabase {
         
         // Cache for loaded data
         this.dataCache = new Map();
+
+        this.sortState = {
+            field: null,
+            direction: null
+        };
+        this.sortConfigByField = {};
     }
 
     // Initialize the application
     async initialize() {
         this.handleUrlRedirects();
+        this.setupSortableHeaders();
         await this.loadData();
         this.setupEventListeners();
         this.handleUrlParameters();
@@ -180,7 +187,7 @@ class TheatreDatabase {
     // Initialize interface after data loading
     initializeInterface() {
         this.populateFilters();
-        this.filteredTheatres = this.region ? this.allTheatres : [];
+        this.filteredTheatres = [...this.allTheatres];
         this.renderTable();
         this.updateStats();
         this.hideLoading();
@@ -287,6 +294,75 @@ class TheatreDatabase {
                 this.exportData();
             });
         }
+    }
+
+    setupSortableHeaders() {
+        const headers = document.querySelectorAll('#theatreTable thead th[data-sort-field]');
+        headers.forEach(header => {
+            const button = header.querySelector('.sort-button');
+            const field = header.dataset.sortField;
+            if (!button || !field) {
+                return;
+            }
+
+            this.sortConfigByField[field] = {
+                type: header.dataset.sortType || 'text'
+            };
+
+            header.setAttribute('aria-sort', 'none');
+
+            button.addEventListener('click', () => {
+                this.toggleSort(field);
+            });
+        });
+
+        this.updateSortHeaders();
+    }
+
+    toggleSort(field) {
+        if (this.sortState.field !== field || this.sortState.direction === null) {
+            this.sortState = { field, direction: 'descending' };
+        } else if (this.sortState.direction === 'descending') {
+            this.sortState = { field, direction: 'ascending' };
+        } else {
+            this.sortState = { field: null, direction: null };
+        }
+
+        this.updateSortHeaders();
+        this.renderTable();
+    }
+
+    updateSortHeaders() {
+        const headers = document.querySelectorAll('#theatreTable thead th[data-sort-field]');
+
+        headers.forEach(header => {
+            const button = header.querySelector('.sort-button');
+            const isActive = header.dataset.sortField === this.sortState.field && this.sortState.direction;
+            const ariaSort = isActive ? this.sortState.direction : 'none';
+            const nextDirection = this.getNextSortDirection(header.dataset.sortField);
+            const nextAction = nextDirection || 'unsorted';
+            const label = header.querySelector('.sort-label')?.textContent.trim() || header.dataset.sortField;
+
+            header.setAttribute('aria-sort', ariaSort);
+
+            if (button) {
+                const labelText = `Sort by ${label} (${nextAction} next)`;
+                button.setAttribute('title', labelText);
+                button.setAttribute('aria-label', labelText);
+            }
+        });
+    }
+
+    getNextSortDirection(field) {
+        if (this.sortState.field !== field || this.sortState.direction === null) {
+            return 'descending';
+        }
+
+        if (this.sortState.direction === 'descending') {
+            return 'ascending';
+        }
+
+        return null;
     }
 
     // Populate filter dropdowns
@@ -571,6 +647,8 @@ class TheatreDatabase {
     renderTable() {
         const tableBody = document.getElementById('theatreTableBody');
         if (!tableBody) return;
+
+        this.updateSortHeaders();
         
         if (this.filteredTheatres.length === 0) {
             tableBody.innerHTML = '<tr><td colspan="12" style="text-align: center; padding: 2rem;">No theatres found matching current filters</td></tr>';
@@ -578,7 +656,9 @@ class TheatreDatabase {
             return;
         }
         
-        const rows = this.filteredTheatres.map(theatre => {
+        const displayTheatres = this.getDisplayTheatres();
+
+        const rows = displayTheatres.map(theatre => {
             const height = this.convertDimension(theatre.Height);
             const width = this.convertDimension(theatre.Width);
             
@@ -602,6 +682,82 @@ class TheatreDatabase {
         
         tableBody.innerHTML = rows;
         this.showTable();
+    }
+
+    getDisplayTheatres() {
+        if (!this.sortState.field || !this.sortState.direction) {
+            return [...this.filteredTheatres];
+        }
+
+        const { field, direction } = this.sortState;
+        const multiplier = direction === 'ascending' ? 1 : -1;
+
+        return this.filteredTheatres
+            .map((theatre, index) => ({ theatre, index }))
+            .sort((a, b) => {
+                const comparison = this.compareValues(
+                    a.theatre[field],
+                    b.theatre[field],
+                    this.sortConfigByField[field]?.type || 'text'
+                );
+
+                if (comparison !== 0) {
+                    return comparison * multiplier;
+                }
+
+                return a.index - b.index;
+            })
+            .map(item => item.theatre);
+    }
+
+    compareValues(valueA, valueB, type) {
+        const normalizedA = this.normalizeSortValue(valueA, type);
+        const normalizedB = this.normalizeSortValue(valueB, type);
+
+        if (normalizedA === null && normalizedB === null) {
+            return 0;
+        }
+
+        if (normalizedA === null) {
+            return 1;
+        }
+
+        if (normalizedB === null) {
+            return -1;
+        }
+
+        if (typeof normalizedA === 'number' && typeof normalizedB === 'number') {
+            return normalizedA - normalizedB;
+        }
+
+        return String(normalizedA).localeCompare(String(normalizedB), undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+    }
+
+    normalizeSortValue(value, type) {
+        if (value === null || value === undefined) {
+            return null;
+        }
+
+        const text = value.toString().trim();
+        if (!text) {
+            return null;
+        }
+
+        switch (type) {
+            case 'dimension': {
+                const match = text.match(/-?\d+(?:\.\d+)?/);
+                return match ? parseFloat(match[0]) : null;
+            }
+            case 'aspect-ratio': {
+                const match = text.match(/-?\d+(?:\.\d+)?(?=:1)/);
+                return match ? parseFloat(match[0]) : text.toLowerCase();
+            }
+            default:
+                return text.toLowerCase();
+        }
     }
 
     // Convert dimensions based on current unit
@@ -655,7 +811,7 @@ class TheatreDatabase {
             this.filteredTheatres = [...this.allTheatres];
         } else {
             this.populateGlobalFilters();
-            this.filteredTheatres = [];
+            this.filteredTheatres = [...this.allTheatres];
         }
         
         this.renderTable();
@@ -700,7 +856,7 @@ class TheatreDatabase {
             return;
         }
         
-        const csv = Papa.unparse(this.filteredTheatres);
+        const csv = Papa.unparse(this.getDisplayTheatres());
         const blob = new Blob([csv], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');

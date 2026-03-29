@@ -127,7 +127,7 @@
 .controls-row {
     display: flex;
     gap: 15px;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
@@ -314,6 +314,89 @@ th {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+th.sortable-column {
+    padding: 0;
+}
+
+th.sortable-column:hover {
+    background: linear-gradient(145deg, #31314a 0%, #3b3b63 100%);
+}
+
+th.sortable-column:focus-within {
+    outline: 2px solid #0072CE;
+    outline-offset: -2px;
+}
+
+th.sortable-column .sort-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    user-select: none;
+}
+
+th.sortable-column .sort-button:focus {
+    outline: none;
+}
+
+th.sortable-column .sort-label {
+    flex: 1;
+}
+
+th.sortable-column .sort-indicator {
+    position: relative;
+    width: 10px;
+    height: 14px;
+    flex: 0 0 10px;
+}
+
+th.sortable-column .sort-indicator::before,
+th.sortable-column .sort-indicator::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    opacity: 0.25;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+th.sortable-column .sort-indicator::before {
+    top: 0;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+th.sortable-column .sort-indicator::after {
+    bottom: 0;
+    border-top: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+th.sortable-column[aria-sort="ascending"] .sort-indicator::before {
+    border-bottom-color: #7fc7ff;
+    opacity: 1;
+}
+
+th.sortable-column[aria-sort="ascending"] .sort-indicator::after {
+    opacity: 0.1;
+}
+
+th.sortable-column[aria-sort="descending"] .sort-indicator::before {
+    opacity: 0.1;
+}
+
+th.sortable-column[aria-sort="descending"] .sort-indicator::after {
+    border-top-color: #7fc7ff;
+    opacity: 1;
+}
+
 tr:hover {
     background: rgba(0, 114, 206, 0.1);
 }
@@ -342,6 +425,10 @@ td {
     }
 
     th, td {
+        padding: 10px 8px;
+    }
+
+    th.sortable-column .sort-button {
         padding: 10px 8px;
     }
 }
