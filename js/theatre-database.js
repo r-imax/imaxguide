@@ -40,33 +40,7 @@ class TheatreDatabase {
 
     // Handle backward compatibility redirects
     handleUrlRedirects() {
-        const path = window.location.pathname;
         const params = new URLSearchParams(window.location.search);
-        
-        // Handle /regions/ path redirects (for GitHub Pages compatibility)
-        if (path.includes('/regions/')) {
-            const regionMatch = path.match(/\/regions\/([^\/]+)/);
-            if (regionMatch) {
-                const region = regionMatch[1];
-                const regionPages = {
-                    'americas': 'americas.html',
-                    'europe': 'europe.html',
-                    'asia': 'asia.html',
-                    'africa': 'africa.html',
-                    'oceania': 'oceania.html'
-                };
-                
-                if (regionPages[region.toLowerCase()]) {
-                    // Build new URL relative to site root
-                    const newUrl = new URL(regionPages[region.toLowerCase()], window.location.origin);
-                    // Preserve query parameters and fragments
-                    newUrl.search = window.location.search;
-                    newUrl.hash = window.location.hash;
-                    window.location.replace(newUrl);
-                    return;
-                }
-            }
-        }
         
         // Handle ?region= parameter redirects (existing logic)
         const region = params.get('region');

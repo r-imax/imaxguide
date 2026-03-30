@@ -6,17 +6,17 @@ A comprehensive, open-source database of IMAX theatres worldwide with an interac
 
 ### Core Features
 
-- **Global Database Browser**: Browse all 476+ theatres worldwide from a single interface ([database.html](database.html))
+- **Global Database Browser**: Browse all 483+ theatres worldwide from a single interface ([database.html](database.html))
 - **Regional Pages**: Dedicated pages for [Americas](americas.html), [Europe](europe.html), [Asia](asia.html), [Africa](africa.html), and [Oceania](oceania.html) with optimized performance
 - **Interactive Table**: Sort, filter, and search through IMAX theatre data with real-time results
 - **Export Functionality**: Download filtered data as CSV with timestamps
-- **Educational Resources**: [Projector information page](projector.html) explaining IMAX projection technologies
+- **Educational Resources**: [Projector information page](projectorinformation/) explaining IMAX projection technologies
 - **Responsive Design**: Mobile-first design that works perfectly on all devices
 - **Open Source**: Community-driven data collection and maintenance
 
 ### Advanced Filtering
 
-- **Enhanced Filtering System**: Screen size (Large >20m, Standard 15-20m, Small <15m), format (1.43:1 True IMAX, 1.90:1 IMAX Digital, Dome), and film capability filters
+- **Enhanced Filtering System**: Screen size (Large ≥16m, Standard 15-16m, Small <15m), format (1.43:1 True IMAX, 1.90:1 IMAX Digital, Dome), and film capability filters
 - **Hierarchical Filtering**: Cascading region → country/area → province/state → city filter system prevents invalid geographical combinations
 - **Equipment Filters**: Filter by digital projector type, film capability, screen format, and technical specifications
 - **Real-time Search**: Search across all fields including location names, cities, and equipment details
@@ -26,16 +26,6 @@ A comprehensive, open-source database of IMAX theatres worldwide with an interac
 - **Comprehensive Validation Pipeline**: Python script validates all data files for consistency and accuracy
 - **Flexible Administrative Divisions**: Supports Province/State/Region/District/Prefecture/Canton/Emirate columns
 - **Standardized Format**: Consistent CSV schema across all 51 countries
-
-## 📊 Current Data
-
-- **51 Countries/Territories** across 5 continents
-- **476+ Individual Theatre Records** with comprehensive details
-- **Americas**: 10 countries (US, Canada, Mexico, Brazil, Colombia, etc.)
-- **Asia**: 18 countries/territories (China, Japan, India, UAE, etc.)
-- **Europe**: 19 countries (Germany, UK, France, Italy, etc.)
-- **Oceania**: 2 countries (Australia, New Zealand)
-- **Africa**: 2 countries (South Africa, Morocco)
 
 ## 🚀 Quick Start (Local Development)
 
@@ -52,7 +42,7 @@ git clone https://github.com/r-imax/imaxguide.git
 cd imaxguide
 ```
 
-2. **Data is already included** - 51 countries with 476+ theatres in `data/` directory organized by region:
+2. **Data is already included** - 51 countries with 483+ theatres in `data/` directory organized by region:
 ```
 data/
 ├── americas/
@@ -92,7 +82,7 @@ npx serve .
 php -S localhost:8000
 ```
 
-4. **Open your browser**
+5. **Open your browser**
 Navigate to `http://localhost:8000`
 
 ## 📁 Project Structure
@@ -102,19 +92,19 @@ imaxguide/
 ├── index.html              # Main landing page with navigation cards
 ├── database.html           # Global theatre database browser
 ├── americas.html           # Americas regional page
-├── asia.html              # Asia regional page
-├── europe.html            # Europe regional page
-├── africa.html            # Africa regional page
-├── oceania.html           # Oceania regional page
-├── about.html             # About page
-├── projector.html         # Projector information page
-├── css/                   # Organized stylesheets
-│   ├── shared.css         # Shared styles across pages
-│   ├── database.css       # Database page styles
-│   └── index.css          # Landing page styles
-├── js/                    # JavaScript modules
+├── asia.html               # Asia regional page
+├── europe.html             # Europe regional page
+├── africa.html             # Africa regional page
+├── oceania.html            # Oceania regional page
+├── about/                  # About page
+├── projectorinformation/   # Projector information page
+├── css/                    # Organized stylesheets
+│   ├── shared.css          # Shared styles across pages
+│   ├── database.css        # Database page styles
+│   └── index.css           # Landing page styles
+├── js/                     # JavaScript modules
 │   └── theatre-database.js # Shared TheatreDatabase class
-├── data/                  # CSV data files organized by region
+├── data/                   # CSV data files organized by region
 │   ├── americas/
 │   │   ├── canada.csv
 │   │   ├── unitedstates.csv
@@ -133,11 +123,9 @@ imaxguide/
 │   └── oceania/
 │       ├── australia.csv
 │       └── newzealand.csv
-├── scripts/               # Utility scripts
-│   └── validate_data.py   # Data validation script
-├── CLAUDE.md              # Development documentation
-├── next.md                # Project roadmap and tasks
-├── readme.md
+├── scripts/                # Utility scripts
+│   └── validate_data.py    # Data validation script
+├── CLAUDE.md               # Development documentation
 └── LICENSE
 ```
 
