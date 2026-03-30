@@ -17,22 +17,6 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-bin/
-lib/
-pyvenv.cfg
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Logs
 *.log
@@ -43,35 +27,11 @@ logs/
 *.temp
 .cache/
 
-# Build outputs
-dist/
-build/
-out/
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 # Backup files
 *.bak
 *.backup
-
-# Local development server
-.serve/
 
 # CSV backup/temp files (keep originals in data/)
 data/*.bak
 data/*.tmp
 data/~*
-
-# Documentation builds
-docs/_build/
-site/
-
-# Claude Code development files (keep private)
-CLAUDE.md
-next.md
-.claude/

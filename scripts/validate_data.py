@@ -39,7 +39,7 @@ REQUIRED_COLUMNS = {
 VALID_VALUES = {
     'Commercial films shown?': {'Yes', 'No', 'Limited', 'Unknown', 'Unk'},
     'Screen Aspect Ratio (AR)': {
-        '1.43:1', '1.90:1', 'Dome 1.43:1', 'Unk', 'Unknown', 'N/A'
+        '1.43:1', '1.90:1', '2.40:1', 'Dome 1.43:1', 'Unk', 'Unknown', 'N/A'
     },
     'Digital Projector': {
         'IMAX CoLa', 'IMAX Digital', 'IMAX Laser XT', 'IMAX GT Laser',
