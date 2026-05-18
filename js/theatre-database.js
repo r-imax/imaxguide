@@ -40,27 +40,15 @@ class TheatreDatabase {
 
     // Handle backward compatibility redirects
     handleUrlRedirects() {
-        const params = new URLSearchParams(window.location.search);
-        
-        // Handle ?region= parameter redirects (existing logic)
-        const region = params.get('region');
-        if (region && window.location.pathname.endsWith('database.html')) {
-            const regionPages = {
-                'americas': 'americas.html',
-                'europe': 'europe.html',
-                'asia': 'asia.html',
-                'africa': 'africa.html',
-                'oceania': 'oceania.html'
-            };
-            
-            if (regionPages[region.toLowerCase()]) {
-                const newUrl = new URL(regionPages[region.toLowerCase()], window.location);
-                // Preserve other parameters
-                params.delete('region');
-                newUrl.search = params.toString();
-                window.location.replace(newUrl);
-                return;
-            }
+        // No longer redirecting ?region= to individual HTML pages since they are consolidated.
+        // Left here for any future hash or legacy parameter handling.
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            // If someone accesses database.html#germany
+            window.location.hash = '';
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('country', hash.toLowerCase());
+            window.history.replaceState({}, '', newUrl);
         }
     }
 
@@ -82,32 +70,29 @@ class TheatreDatabase {
                 this.csvFiles.filter(file => file.region === this.region) : 
                 this.csvFiles;
             
-            console.log(`Loading ${filesToLoad.length} files for ${this.region || 'global'} view...`);
-            
-            for (const csvConfig of filesToLoad) {
+            const loadedFiles = await Promise.all(filesToLoad.map(async (csvConfig) => {
                 try {
                     const response = await fetch(`${this.dataPath}${csvConfig.filename}`);
                     if (!response.ok) {
-                        console.warn(`Could not load ${csvConfig.filename}: ${response.status}`);
-                        continue;
+                        return [];
                     }
-                    
+
                     const csvText = await response.text();
-                    await this.parseCSV(csvText, csvConfig);
-                    
+                    return await this.parseCSV(csvText, csvConfig);
+
                 } catch (error) {
-                    console.error(`Error loading ${csvConfig.filename}:`, error);
+                    // File load error - continue with next file
+                    return [];
                 }
-            }
+            }));
+
+            this.allTheatres = loadedFiles.flat();
             
             // Cache the loaded data
             this.dataCache.set(cacheKey, [...this.allTheatres]);
-            
-            console.log(`Total theatres loaded: ${this.allTheatres.length}`);
             this.initializeInterface();
             
         } catch (error) {
-            console.error('Error loading data:', error);
             this.showError(`Failed to load theatre data: ${error.message}`);
             this.hideLoading();
         }
@@ -120,9 +105,6 @@ class TheatreDatabase {
                 header: true,
                 skipEmptyLines: true,
                 complete: (results) => {
-                    if (results.errors.length > 0) {
-                        console.warn(`Parsing errors in ${csvConfig.filename}:`, results.errors);
-                    }
                     
                     const processedData = results.data.map(row => {
                         let adminDivValue = '';
@@ -150,9 +132,7 @@ class TheatreDatabase {
                         return processedRow;
                     });
                     
-                    this.allTheatres = this.allTheatres.concat(processedData);
-                    console.log(`Loaded ${processedData.length} theatres from ${csvConfig.filename}`);
-                    resolve();
+                    resolve(processedData);
                 }
             });
         });
@@ -215,11 +195,15 @@ class TheatreDatabase {
             });
         }
 
-        // Search input
+        // Search input - with debouncing to prevent performance issues
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
+            let searchDebounceTimer;
             searchInput.addEventListener('input', () => {
-                this.applyFilters();
+                clearTimeout(searchDebounceTimer);
+                searchDebounceTimer = setTimeout(() => {
+                    this.applyFilters();
+                }, 300);
             });
         }
 
@@ -268,6 +252,43 @@ class TheatreDatabase {
                 this.exportData();
             });
         }
+
+        // Statistics button
+        const statsBtn = document.getElementById('statsBtn');
+        if (statsBtn) {
+            statsBtn.addEventListener('click', () => {
+                const statsContainer = document.getElementById('statsContainer');
+                if (statsContainer) {
+                    statsContainer.classList.toggle('show');
+                }
+            });
+        }
+
+        this.setupTableScrollArrow();
+    }
+
+    setupTableScrollArrow() {
+        const tableWrapper = document.querySelector('.table-scroll-wrapper');
+        if (!tableWrapper) return;
+
+        tableWrapper.addEventListener('scroll', () => this.updateTableScrollArrow());
+        window.addEventListener('resize', () => this.updateTableScrollArrow());
+
+        if (window.ResizeObserver) {
+            const table = document.getElementById('theatreTable');
+            const resizeObserver = new ResizeObserver(() => this.updateTableScrollArrow());
+            resizeObserver.observe(tableWrapper);
+            if (table) resizeObserver.observe(table);
+        }
+    }
+
+    updateTableScrollArrow() {
+        const tableContainer = document.getElementById('tableContainer');
+        const tableWrapper = document.querySelector('.table-scroll-wrapper');
+        if (!tableContainer || !tableWrapper) return;
+
+        const canScrollRight = tableWrapper.scrollLeft + tableWrapper.clientWidth < tableWrapper.scrollWidth - 1;
+        tableContainer.classList.toggle('can-scroll-right', canScrollRight);
     }
 
     setupSortableHeaders() {
@@ -378,14 +399,16 @@ class TheatreDatabase {
     populateGlobalFilters() {
         // Regions
         const regions = [...new Set(this.allTheatres.map(t => t.Region))].sort();
-        this.populateSelect('regionSelect', regions, 'Select region', true);
+        this.populateSelect('regionSelect', regions, 'All Regions');
         
-        // Don't populate dependent filters initially - wait for region selection
-        this.clearDependentFilters();
+        // Populate dependent filters with all options initially
+        this.updateCountryFilter();
+        this.updateAdminDivisionFilter();
+        this.updateCityFilter();
     }
 
     // Utility to populate a select element
-    populateSelect(elementId, options, defaultText = '', addAll = false) {
+    populateSelect(elementId, options, defaultText = '') {
         const selectElement = document.getElementById(elementId);
         if (!selectElement) return;
         
@@ -395,13 +418,6 @@ class TheatreDatabase {
         if (firstOption && defaultText) {
             firstOption.textContent = defaultText;
             selectElement.appendChild(firstOption);
-        }
-        
-        if (addAll) {
-            const allOption = document.createElement('option');
-            allOption.value = 'all';
-            allOption.textContent = 'All Regions';
-            selectElement.appendChild(allOption);
         }
         
         options.forEach(option => {
@@ -438,11 +454,9 @@ class TheatreDatabase {
                     .map(t => t.Country)
                     .filter(Boolean)
             )].sort();
-        } else if (selectedRegion === 'all') {
-            countries = [...new Set(this.allTheatres.map(t => t.Country).filter(Boolean))].sort();
         } else {
-            this.clearDependentFilters();
-            return;
+            // It's "" or "all", populate ALL countries across all regions
+            countries = [...new Set(this.allTheatres.map(t => t.Country).filter(Boolean))].sort();
         }
         
         this.populateSelect('countrySelect', countries, 'All Countries/Areas');
@@ -577,8 +591,38 @@ class TheatreDatabase {
         }
         
         this.filteredTheatres = filtered;
+        this.updateUrl();
         this.renderTable();
         this.updateStats();
+    }
+
+    // Update URL to reflect current filters
+    updateUrl() {
+        const params = new URLSearchParams();
+        
+        const region = document.getElementById('regionSelect')?.value;
+        if (region && region !== 'all') params.set('region', region.toLowerCase());
+        
+        const country = document.getElementById('countrySelect')?.value;
+        if (country) params.set('country', country.toLowerCase());
+        
+        const state = document.getElementById('adminDivSelect')?.value;
+        if (state) params.set('state', state.toLowerCase());
+        
+        const city = document.getElementById('citySelect')?.value;
+        if (city) params.set('city', city.toLowerCase());
+        
+        const projector = document.getElementById('projectorFilter')?.value;
+        if (projector) params.set('projector', projector);
+        
+        const aspect = document.getElementById('aspectRatioFilter')?.value;
+        if (aspect) params.set('aspect', aspect);
+        
+        const film = document.getElementById('filmCapabilityFilter')?.value;
+        if (film) params.set('film', film);
+
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        window.history.replaceState({}, '', newUrl);
     }
 
     // Enhanced filter helper methods
@@ -638,24 +682,26 @@ class TheatreDatabase {
             
             return `
                 <tr>
-                    ${this.showRegionColumn ? `<td>${theatre.Region}</td>` : ''}
-                    <td>${theatre.Country}</td>
+                    ${this.showRegionColumn ? `<td>${theatre.Region}</td>` : '<td>-</td>'}
+                    <td>${theatre.Country || ''}</td>
                     <td>${theatre['Administrative Division'] || ''}</td>
-                    <td>${theatre.City}</td>
-                    <td>${theatre['Location Name']}</td>
-                    <td>${theatre['Screen Aspect Ratio (AR)']}</td>
-                    <td>${theatre['Digital Projector']}</td>
-                    <td>${theatre['Maximum AR for digital projection']}</td>
-                    <td>${theatre['Film Projector']}</td>
-                    <td>${height}</td>
-                    <td>${width}</td>
-                    <td>${theatre['Commercial films shown?']}</td>
+                    <td>${theatre.City || ''}</td>
+                    <td>${theatre['Location Name'] || ''}</td>
+                    <td>${theatre['Screen Aspect Ratio (AR)'] || ''}</td>
+                    <td>${theatre['Digital Projector'] || ''}</td>
+                    <td>${theatre['Maximum AR for digital projection'] || ''}</td>
+                    <td>${theatre['Film Projector'] || ''}</td>
+                    <td>${height || ''}</td>
+                    <td>${width || ''}</td>
+                    <td>${theatre['Commercial films shown?'] || ''}</td>
                 </tr>
             `;
         }).join('');
         
         tableBody.innerHTML = rows;
         this.showTable();
+        requestAnimationFrame(() => this.updateTableScrollArrow());
+        setTimeout(() => this.updateTableScrollArrow(), 100);
     }
 
     getDisplayTheatres() {
@@ -797,36 +843,40 @@ class TheatreDatabase {
         const totalElement = document.getElementById('totalTheatres');
         const regionsElement = document.getElementById('totalRegions');
         const citiesElement = document.getElementById('totalCities');
-        const projectorsElement = document.getElementById('projectorTypes');
+        const projectorTypesElement = document.getElementById('projectorTypes');
         
         if (totalElement) totalElement.textContent = this.filteredTheatres.length;
         
         if (regionsElement) {
-            const regions = new Set(this.filteredTheatres.map(t => t.Country));
+            const regions = new Set(this.filteredTheatres.map(t => t.Region).filter(Boolean));
             regionsElement.textContent = regions.size;
         }
         
         if (citiesElement) {
-            const cities = new Set(this.filteredTheatres.map(t => t.City));
+            const cities = new Set(this.filteredTheatres.map(t => t.City).filter(Boolean));
             citiesElement.textContent = cities.size;
         }
         
-        if (projectorsElement) {
-            const projectors = new Set(this.filteredTheatres.map(t => t['Digital Projector']).filter(Boolean));
-            projectorsElement.textContent = projectors.size;
+        if (projectorTypesElement) {
+            const projectorTypes = new Set(
+                this.filteredTheatres
+                    .map(t => t['Digital Projector'])
+                    .filter(p => p && p.toUpperCase() !== 'NONE' && p.toUpperCase() !== 'NO' && p.toUpperCase() !== 'N/A')
+            );
+            projectorTypesElement.textContent = projectorTypes.size;
         }
         
         // Show stats container
         const statsContainer = document.getElementById('statsContainer');
         if (statsContainer) {
-            statsContainer.style.display = this.filteredTheatres.length > 0 ? 'grid' : 'none';
+            statsContainer.style.display = this.filteredTheatres.length > 0 ? 'block' : 'none';
         }
     }
 
     // Export data
     exportData() {
         if (this.filteredTheatres.length === 0) {
-            alert('No data to export. Please apply some filters first.');
+            this.showError('No data to export. Please apply filters first.');
             return;
         }
         
@@ -843,63 +893,94 @@ class TheatreDatabase {
     // Handle URL parameters
     handleUrlParameters() {
         const urlParams = new URLSearchParams(window.location.search);
+        const region = urlParams.get('region');
         const country = urlParams.get('country');
         const state = urlParams.get('state') || urlParams.get('province');
         const city = urlParams.get('city');
+        const projector = urlParams.get('projector');
+        const aspect = urlParams.get('aspect');
+        const film = urlParams.get('film');
         
-        if (country || state || city) {
-            setTimeout(() => {
-                if (country) {
-                    const countryMap = {
-                        'canada': 'Canada',
-                        'unitedstates': 'United States',
-                        'unitedkingdom': 'United Kingdom'
-                    };
-                    const countryName = countryMap[country.toLowerCase()] || 
-                                      country.charAt(0).toUpperCase() + country.slice(1);
-                    const countrySelect = document.getElementById('countrySelect');
-                    if (countrySelect) {
-                        countrySelect.value = countryName;
-                        this.updateAdminDivisionFilter();
-                    }
+        let shouldApplyFilters = false;
+
+        if (region) {
+            const regionSelect = document.getElementById('regionSelect');
+            if (regionSelect) {
+                const regionValue = Array.from(regionSelect.options)
+                    .find(option => option.value.toLowerCase() === region.toLowerCase())?.value;
+                if (regionValue || region.toLowerCase() === 'americas' || region.toLowerCase() === 'europe' || region.toLowerCase() === 'asia' || region.toLowerCase() === 'africa' || region.toLowerCase() === 'oceania') {
+                    // Normalize region text, e.g. "europe" -> "Europe"
+                    regionSelect.value = regionValue || (region.charAt(0).toUpperCase() + region.slice(1));
+                    this.updateCountryFilter();
+                    shouldApplyFilters = true;
                 }
-                
-                if (state) {
-                    setTimeout(() => {
-                        const adminSelect = document.getElementById('adminDivSelect');
-                        if (adminSelect) {
-                            // Try exact match first, then partial match
-                            const stateValue = Array.from(adminSelect.options)
-                                .find(option => 
-                                    option.value.toLowerCase() === state.toLowerCase() ||
-                                    option.value.toLowerCase().includes(state.toLowerCase())
-                                )?.value;
-                            if (stateValue) {
-                                adminSelect.value = stateValue;
-                                this.updateCityFilter();
-                            }
-                        }
-                    }, 100);
+            }
+        }
+        
+        if (country) {
+            const countryMap = {
+                'canada': 'Canada',
+                'unitedstates': 'United States',
+                'unitedkingdom': 'United Kingdom'
+            };
+            const countryName = countryMap[country.toLowerCase()] || 
+                              country.charAt(0).toUpperCase() + country.slice(1);
+            const countrySelect = document.getElementById('countrySelect');
+            if (countrySelect) {
+                countrySelect.value = countryName;
+                this.updateAdminDivisionFilter();
+                shouldApplyFilters = true;
+            }
+        }
+        
+        if (state) {
+            const adminSelect = document.getElementById('adminDivSelect');
+            if (adminSelect) {
+                const stateValue = Array.from(adminSelect.options)
+                    .find(option => 
+                        option.value.toLowerCase() === state.toLowerCase() ||
+                        option.value.toLowerCase().includes(state.toLowerCase())
+                    )?.value;
+                if (stateValue) {
+                    adminSelect.value = stateValue;
+                    this.updateCityFilter();
+                    shouldApplyFilters = true;
                 }
-                
-                if (city) {
-                    setTimeout(() => {
-                        const citySelect = document.getElementById('citySelect');
-                        if (citySelect) {
-                            const cityValue = Array.from(citySelect.options)
-                                .find(option => 
-                                    option.value.toLowerCase() === city.toLowerCase() ||
-                                    option.value.toLowerCase().includes(city.toLowerCase())
-                                )?.value;
-                            if (cityValue) {
-                                citySelect.value = cityValue;
-                            }
-                        }
-                    }, 200);
+            }
+        }
+        
+        if (city) {
+            const citySelect = document.getElementById('citySelect');
+            if (citySelect) {
+                const cityValue = Array.from(citySelect.options)
+                    .find(option => 
+                        option.value.toLowerCase() === city.toLowerCase() ||
+                        option.value.toLowerCase().includes(city.toLowerCase())
+                    )?.value;
+                if (cityValue) {
+                    citySelect.value = cityValue;
+                    shouldApplyFilters = true;
                 }
-                
-                setTimeout(() => this.applyFilters(), 300);
-            }, 500);
+            }
+        }
+
+        if (projector) {
+            const projectorSelect = document.getElementById('projectorFilter');
+            if (projectorSelect) { projectorSelect.value = projector; shouldApplyFilters = true; }
+        }
+
+        if (aspect) {
+            const aspectSelect = document.getElementById('aspectRatioFilter');
+            if (aspectSelect) { aspectSelect.value = aspect; shouldApplyFilters = true; }
+        }
+
+        if (film) {
+            const filmSelect = document.getElementById('filmCapabilityFilter');
+            if (filmSelect) { filmSelect.value = film; shouldApplyFilters = true; }
+        }
+        
+        if (shouldApplyFilters) {
+            this.applyFilters();
         }
     }
 
@@ -924,7 +1005,10 @@ class TheatreDatabase {
     hideTable() {
         const tableContainer = document.getElementById('tableContainer');
         const tableText = document.getElementById('tableText');
-        if (tableContainer) tableContainer.style.display = 'none';
+        if (tableContainer) {
+            tableContainer.style.display = 'none';
+            tableContainer.classList.remove('can-scroll-right');
+        }
         if (tableText) tableText.style.display = 'none';
     }
 
