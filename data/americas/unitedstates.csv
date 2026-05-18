@@ -166,7 +166,7 @@ TX,Houston,Showbiz Cinemas Liberty Lakes & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0
 TX,San Antonio,AMC Rivercenter 11 & IMAX (Auditorium 11),1.43:1,IMAX Digital,1.90:1,No,16.10 m,21.30 m,Yes
 TX,Shenandoah,AMC Metropark 10 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.00 m,16.00 m,Yes
 TX,Waxahachie,EVO Entertainment Waxahachie & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
-UT,Salt Lake City,Clark Planetarium (Northrop Grumman IMAX Theatre),1.43:1,IMAX Digital,1.90:1,No,16.8 m,21.3 m,Limited
+UT,Salt Lake City, Northrop Grumman IMAX Theatre (Clark Planetarium),1.43:1,IMAX Digital,1.90:1,No,16.8 m,21.3 m,Limited
 UT,Sandy,Megaplex Sandy at Jordan Commons & IMAX,1.43:1,IMAX Digital,1.90:1,No,17.2 m,24.6 m,Yes
 VA,Alexandria,AMC Hoffman Center 22 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.5 m,15.5 m,Yes
 VA,Ashburn,Regal Fox & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.50 m,16.80 m,Yes
@@ -176,6 +176,7 @@ VA,Virginia Beach,AMC Lynnhaven 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.10 m,15.8
 VA,Woodbridge,AMC Potomac Mills 18 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.00 m,16.00 m,Yes
 WA,Kent,AMC Kent Station 14 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,8.80 m,15.70 m,Yes
 WA,Lynnwood,AMC Alderwood Mall 16 & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.70 m,19.20 m,Yes
-WA,Seattle,"Boeing IMAX, Pacific Science Center",1.43:1,IMAX GT Laser,1.43:1,No,18.10 m,24.40 m,Yes
+WA,Seattle,IMAX at the Center (formerly the Boeing IMAX Theater),1.43:1,IMAX GT Laser,1.43:1,No,18.10 m,24.40 m,No
+WA,Seattle,PACCAR IMAX Theater at Pacific Science Center,1.43:1,IMAX Digital,1.90:1,No,18.30 m, 11.30 m, Limited
 WA,Seattle,Regal Thornton Place & IMAX,1.90:1,IMAX CoLa,1.90:1,No,0 m,0 m,Yes
 WA,Tukwila,AMC Southcenter 16 & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,8.70 m,15.80 m,Yes
