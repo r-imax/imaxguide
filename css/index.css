@@ -8,19 +8,27 @@
     margin-bottom: 80px;
 }
 
-.nav-card {
+.nav-card,
+.about-section,
+.region-link {
     background: white;
     border: 1px solid #ddd;
+    transition: border-color 0.15s ease;
+}
+
+.nav-card {
     padding: 32px;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    transition: border-color 0.15s ease;
     display: flex;
     flex-direction: column;
 }
 
-.nav-card:hover {
+.nav-card:hover,
+.about-section:hover,
+.about-section:focus-within,
+.region-link:hover {
     border-color: #0066cc;
 }
 
@@ -74,8 +82,6 @@
 
 /* About section */
 .about-section {
-    background: white;
-    border: 1px solid #ddd;
     padding: 24px;
     margin-bottom: 40px;
 }
@@ -122,18 +128,11 @@
 }
 
 .region-link {
-    background: white;
-    border: 1px solid #ddd;
     padding: 16px;
     text-align: center;
     text-decoration: none;
     color: #0066cc;
     font-weight: 600;
-    transition: border-color 0.15s ease;
-}
-
-.region-link:hover {
-    border-color: #0066cc;
 }
 
 @media (max-width: 768px) {
