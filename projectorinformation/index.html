@@ -1,245 +1,83 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMAX Projector Information - Technical Guide</title>
-    <meta name="description" content="Comprehensive guide to IMAX projector types, from IMAX GT Laser to legacy film systems and their technical specifications.">
+    <meta name="description" content="Technical specifications and information about IMAX projector systems.">
     
     <link rel="stylesheet" href="../css/shared.css">
     <link rel="stylesheet" href="../css/database.css">
     
     <style>
-        /* Page-specific content styling */
-        .content-grid {
-            display: grid;
-            gap: 25px;
-            margin: 25px 0;
+        .content-box {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 24px;
+            margin-bottom: 24px;
         }
-        
-        .projector-grid {
-            display: grid;
-            gap: 30px;
-            margin-bottom: 40px;
+
+        .content-box h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
-        
-        .projector-card {
-            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
+
+        .content-box p {
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.7;
         }
-        
-        .projector-card:hover {
-            border-color: #0072CE;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 114, 206, 0.4);
+
+        .content-box ul {
+            margin-left: 24px;
+            color: #666;
+            line-height: 1.7;
         }
-        
-        .projector-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .projector-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .projector-title {
-            flex: 1;
-        }
-        
-        .projector-title h3 {
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        
-        .projector-title .aliases {
-            font-size: 0.9rem;
-            color: #B8B8B8;
-            font-style: italic;
-        }
-        
-        .projector-badge {
-            background: #0072CE;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .projector-description {
-            color: #E5E5E5;
-            margin-bottom: 20px;
-        }
-        
-        .projector-specs {
-            background: linear-gradient(145deg, #252545 0%, #1a1a2e 100%);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .spec-row {
-            display: flex;
-            justify-content: space-between;
+
+        .content-box li {
             margin-bottom: 8px;
         }
-        
-        .spec-row:last-child {
-            margin-bottom: 0;
-        }
-        
-        .spec-label {
-            font-weight: 500;
-            color: #ffffff;
-        }
-        
-        .spec-value {
-            color: #B8B8B8;
-        }
-        
-        .projector-notes {
-            font-size: 0.9rem;
-            color: #B8B8B8;
-            font-style: italic;
-        }
-        
-        .category-section {
-            margin-bottom: 50px;
-        }
-        
-        .category-title {
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #0072CE;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .comparison-table th {
-            background: linear-gradient(145deg, #252545 0%, #1a1a2e 100%);
-            font-weight: 600;
-            color: #ffffff;
-        }
-        
-        .comparison-table td {
-            color: #E5E5E5;
-        }
-        
-        .comparison-table tr:hover {
-            background: rgba(0, 114, 206, 0.1);
-        }
-        
-        .highlight-box {
-            background: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
-            border-left: 4px solid #0072CE;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .highlight-box h4 {
-            color: #0072CE;
-            margin-bottom: 15px;
-        }
-        
-        .highlight-box ul {
-            color: #E5E5E5;
-            line-height: 1.8;
-        }
-        
-        .highlight-box li strong {
-            color: #ffffff;
-        }
-        
-        @media (max-width: 768px) {
-            .projector-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .projector-badge {
-                margin-top: 10px;
-            }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 8px 10px;
-            }
+
+        .content-box strong {
+            color: #1a1a1a;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="../index.html">🏠 Home</a>
-            <span>/</span>
-            <span>📽️ Projector Information</span>
+            <a href="../index.html">Home</a> / <strong>Projector Specifications</strong>
         </div>
 
-        <div class="header">
-            <h1>📽️ IMAX Projector Information</h1>
-            <p>Technical guide to IMAX projection systems and equipment</p>
+        <div class="page-header">
+            <h1 class="page-title">IMAX Projector Specifications</h1>
+            <p class="page-subtitle">Technical guide to IMAX projection systems</p>
         </div>
 
-        <div class="controls">
-            <div class="content-section">
-                <div class="section-header">
-                    <span class="section-icon">🚧</span>
-                    <h2 class="section-title">Coming Soon</h2>
-                </div>
-                <div class="section-content">
-                    <div class="highlight-box">
-                        <h4>📽️ IMAX Projector Information Guide</h4>
-                        <p>We're currently working on a comprehensive guide to IMAX projector types and technical specifications. This section will include detailed information about:</p>
-                        <ul>
-                            <li><strong>Digital Laser Systems</strong> - GT Laser, Single Laser, and Laser XT projectors</li>
-                            <li><strong>Film Projectors</strong> - 15/70mm systems and their capabilities</li>
-                            <li><strong>Legacy Digital</strong> - Xenon-based projection systems</li>
-                            <li><strong>Dome Systems</strong> - Specialized projection typically used in Science Centers. Formerly known as OMNIMAX.</li>
-                            <li><strong>Technical Specifications</strong> - Detailed comparisons and capabilities</li>
-                        </ul>
-                        <p style="margin-top: 20px; color: #B8B8B8;">Check back soon for the complete projector information guide!</p>
-                    </div>
-                </div>
-            </div>
+        <div class="content-box">
+            <h2>Coming Soon</h2>
+            <p>We are developing a comprehensive guide to IMAX projector types and technical specifications.</p>
+            
+            <p><strong>Content planned:</strong></p>
+            <ul>
+                <li><strong>Digital Laser Systems</strong> — GT Laser, Single Laser, Laser XT projectors</li>
+                <li><strong>Film Projectors</strong> — 15/70mm systems and capabilities</li>
+                <li><strong>Legacy Digital</strong> — Xenon-based projection systems</li>
+                <li><strong>Dome Systems</strong> — OMNIMAX projection for science centers</li>
+                <li><strong>Technical Specifications</strong> — Detailed comparisons and performance metrics</li>
+            </ul>
+
+            <p style="margin-top: 24px; color: #999;">Check back soon for the complete projection system information guide.</p>
         </div>
-        
+
         <footer class="footer">
-            <p>This project is not affiliated with IMAX Corporation. Theatre information may change frequently.</p>
+            <p>Open-source IMAX theatre database. Not affiliated with IMAX Corporation.</p>
             <div class="footer-links">
-                <a href="https://github.com/r-imax/imaxguide" target="_blank">📂 GitHub Repository</a>
-                <a href="../about/">📧 Contact & Support</a>
-                <a href="../about/">📄 License (MIT)</a>
+                <a href="https://github.com/r-imax/imaxguide" target="_blank">GitHub</a>
+                <a href="../about/">About</a>
+                <a href="../about/">License</a>
             </div>
         </footer>
     </div>
