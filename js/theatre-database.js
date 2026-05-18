@@ -269,26 +269,35 @@ class TheatreDatabase {
 
     setupTableScrollArrow() {
         const tableWrapper = document.querySelector('.table-scroll-wrapper');
-        if (!tableWrapper) return;
+        const tableScrollArrow = document.getElementById('tableScrollArrow');
+        if (!tableWrapper || !tableScrollArrow) return;
+
+        tableScrollArrow.addEventListener('click', () => {
+            tableWrapper.scrollBy({
+                left: Math.min(tableWrapper.clientWidth * 0.8, 700),
+                behavior: 'smooth'
+            });
+        });
 
         tableWrapper.addEventListener('scroll', () => this.updateTableScrollArrow());
+        window.addEventListener('scroll', () => this.updateTableScrollArrow());
         window.addEventListener('resize', () => this.updateTableScrollArrow());
-
-        if (window.ResizeObserver) {
-            const table = document.getElementById('theatreTable');
-            const resizeObserver = new ResizeObserver(() => this.updateTableScrollArrow());
-            resizeObserver.observe(tableWrapper);
-            if (table) resizeObserver.observe(table);
-        }
     }
 
     updateTableScrollArrow() {
         const tableContainer = document.getElementById('tableContainer');
         const tableWrapper = document.querySelector('.table-scroll-wrapper');
-        if (!tableContainer || !tableWrapper) return;
+        const tableScrollArrow = document.getElementById('tableScrollArrow');
+        if (!tableContainer || !tableWrapper || !tableScrollArrow) return;
 
-        const canScrollRight = tableWrapper.scrollLeft + tableWrapper.clientWidth < tableWrapper.scrollWidth - 1;
-        tableContainer.classList.toggle('can-scroll-right', canScrollRight);
+        const rect = tableContainer.getBoundingClientRect();
+        const isTableVisible = rect.bottom > 80 && rect.top < window.innerHeight - 80;
+        const canScrollRight = tableWrapper.scrollLeft + tableWrapper.clientWidth < tableWrapper.scrollWidth - 2;
+
+        const viewportCenterInTable = (window.innerHeight / 2) - rect.top;
+        const arrowTop = Math.min(Math.max(viewportCenterInTable, 48), tableContainer.offsetHeight - 48);
+        tableScrollArrow.style.top = `${arrowTop}px`;
+        tableScrollArrow.classList.toggle('is-visible', isTableVisible && canScrollRight);
     }
 
     setupSortableHeaders() {
@@ -701,7 +710,6 @@ class TheatreDatabase {
         tableBody.innerHTML = rows;
         this.showTable();
         requestAnimationFrame(() => this.updateTableScrollArrow());
-        setTimeout(() => this.updateTableScrollArrow(), 100);
     }
 
     getDisplayTheatres() {
@@ -848,8 +856,8 @@ class TheatreDatabase {
         if (totalElement) totalElement.textContent = this.filteredTheatres.length;
         
         if (regionsElement) {
-            const regions = new Set(this.filteredTheatres.map(t => t.Region).filter(Boolean));
-            regionsElement.textContent = regions.size;
+            const countries = new Set(this.filteredTheatres.map(t => t.Country).filter(Boolean));
+            regionsElement.textContent = countries.size;
         }
         
         if (citiesElement) {
@@ -1007,8 +1015,8 @@ class TheatreDatabase {
         const tableText = document.getElementById('tableText');
         if (tableContainer) {
             tableContainer.style.display = 'none';
-            tableContainer.classList.remove('can-scroll-right');
         }
+        document.getElementById('tableScrollArrow')?.classList.remove('is-visible');
         if (tableText) tableText.style.display = 'none';
     }
 
