@@ -1,12 +1,36 @@
 Province,City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
-Delhi,Delhi,INOX Vishal Mall & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Delhi,New Delhi,INOX Paras & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Delhi,New Delhi,PVR Priya & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Delhi,New Delhi,PVR Select City Walk Gold & IMAX,1.90:1,IMAX CoLa,1.90:1,No,9.10 m,16.30 m,Yes
-Gujarat,Ahmedabad,"IMAX 3D, Gujarat Science City",1.43:1,N/A,N/A,IMAX GT3D 15/70 mm,20.04 m,29.00 m,No
-Maharashtra,Mumbai,PVR Phoenix IMAX,1.90:1,IMAX CoLa,1.90:1,No,18.10 m,9.40 m,Yes
-Maharashtra,Mumbai,PVR INOX Jio World Plaza Bkc & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Maharashtra,Mumbai,EROS & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Maharashtra,Mumbai,Miraj Wadala & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m, 0 m,Yes
-Tamil Nadu,Coimbatore,Broadway Megaaplex & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,0 m,0 m,Yes
-Uttar Pradesh,Noida,PVR Superplex Mall of India & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,12.10 m,21.50 m,Yes
+Delhi,Delhi,"INOX Paras, Nehru Place",1.90:1,IMAX Laser XT,1.90:1,No,8.53 m,15.85 m,Yes
+Delhi,Delhi,"INOX Vishal, Rajouri Garden",1.90:1,IMAX Laser XT,1.90:1,No,7.92 m,15.24 m,Yes
+Delhi,Delhi,PVR Priya,1.90:1,IMAX Laser XT,1.90:1,No,10.97 m,21.03 m,Yes
+Delhi,Delhi,PVR Select City Walk,1.90:1,IMAX CoLa,1.90:1,No,9.14 m,16.15 m,Yes
+Delhi,Delhi,"PVR Vegas Mall, Dwarka",1.90:1,IMAX Digital,1.90:1,No,11.58 m,20.73 m,Yes
+Gujarat,Ahmedabad,Gujarat Science City,1.43:1,N/A,N/A,IMAX GT3D 15/70 mm,20.42 m,29.26 m,No
+Gujarat,Ahmedabad,PVR Palladium Mall,1.90:1,IMAX Laser XT,1.90:1,No,9.14 m,16.15 m,Yes
+Gujarat,Surat,Rajhans Precia Mall,1.90:1,IMAX Laser XT,1.90:1,No,9.14 m,17.98 m,Yes
+Haryana,Gurgaon,PVR Ambience Mall,1.90:1,IMAX Digital,1.90:1,No,9.14 m,16.15 m,Yes
+Karnataka,Bangalore,Cinepolis Nexus Shantiniketan,1.90:1,IMAX Digital,1.90:1,No,9.14 m,17.07 m,Yes
+Karnataka,Bangalore,INOX Mantri Square Mall,1.90:1,IMAX Digital,1.90:1,No,8.84 m,16.15 m,Yes
+Karnataka,Bangalore,INOX RMZ Galleria Mall,1.90:1,IMAX Digital,1.90:1,No,9.45 m,16.76 m,Yes
+Karnataka,Bangalore,"PVR Nexus (formerly Forum), Koramangala",1.90:1,IMAX Laser XT,1.90:1,No,9.75 m,18.59 m,Yes
+Karnataka,Bangalore,PVR VR Bengaluru,1.90:1,IMAX Digital,1.90:1,No,10.36 m,18.90 m,Yes
+Karnataka,Bangalore,PVR Vega City Mall,1.90:1,IMAX Digital,1.90:1,No,10.06 m,18.90 m,Yes
+Kerala,Kochi,Cinepolis Centre Square Mall,1.90:1,IMAX Laser XT,1.90:1,No,8.23 m,15.85 m,Yes
+Kerala,Trivandrum,PVR Lulu Mall,1.90:1,IMAX Digital,1.90:1,No,10.97 m,20.12 m,Yes
+Maharashtra,Mumbai,"EROS INOX Cinema, Churchgate",1.90:1,IMAX Laser XT,1.90:1,No,8.53 m,17.07 m,Yes
+Maharashtra,Mumbai,"INOX Inorbit Mall, Malad",1.90:1,IMAX Digital,1.90:1,No,9.75 m,17.37 m,Yes
+Maharashtra,Mumbai,"INOX Megaplex, Sky City Mall, Borivali",1.90:1,IMAX Laser XT,1.90:1,No,10.97 m,21.03 m,Yes
+Maharashtra,Mumbai,"INOX R City Mall, Ghatkopar",1.90:1,IMAX Digital,1.90:1,No,9.14 m,16.76 m,Yes
+Maharashtra,Mumbai,"Maison INOX, Jio World Plaza, BKC",1.90:1,IMAX Laser XT,1.90:1,No,8.84 m,16.76 m,Yes
+Maharashtra,Mumbai,"Miraj Cinemas, Wadala",1.90:1,IMAX Laser XT,1.90:1,No,12.50 m,21.95 m,Yes
+Maharashtra,Mumbai,"PVR Phoenix, Lower Parel",1.90:1,IMAX CoLa,1.90:1,No,10.06 m,19.20 m,Yes
+Maharashtra,Navi Mumbai,Cinepolis Nexus Seawoods Mall,1.90:1,IMAX Digital,1.90:1,No,9.45 m,17.37 m,Yes
+Maharashtra,Pune,Cinepolis Westend Mall,1.90:1,IMAX Digital,1.90:1,No,9.45 m,16.76 m,Yes
+Maharashtra,Pune,INOX Phoenix Mall of the Millennium,1.90:1,IMAX Laser XT,1.90:1,No,10.06 m,18.29 m,Yes
+Maharashtra,Thane,Cinepolis Viviana Mall,1.90:1,IMAX Digital,1.90:1,No,9.75 m,17.37 m,Yes
+Tamil Nadu,Chennai,"INOX Luxe, Phoenix Marketcity",1.90:1,IMAX Digital,1.90:1,No,10.67 m,19.20 m,Yes
+Tamil Nadu,Chennai,"PVR Palazzo, Nexus Vijaya Mall",1.90:1,IMAX Laser XT,1.90:1,No,11.89 m,21.34 m,Yes
+Tamil Nadu,Coimbatore,Broadway Megaaplex,1.90:1,IMAX Laser XT,1.90:1,No,11.28 m,21.64 m,Yes
+Uttar Pradesh,Lucknow,INOX Phoenix Palassio Mall,1.90:1,IMAX Digital,1.90:1,No,10.06 m,18.29 m,Yes
+Uttar Pradesh,Noida,PVR Bhutani City Center 32,1.90:1,IMAX Digital,1.90:1,No,12.19 m,21.64 m,Yes
+Uttar Pradesh,Noida,"PVR Superplex, DLF Mall of India",1.90:1,IMAX Laser XT,1.90:1,No,7.92 m,14.94 m,Yes
+West Bengal,Kolkata,INOX South City Mall,1.90:1,IMAX Digital,1.90:1,No,8.53 m,15.24 m,Yes
