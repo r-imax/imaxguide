@@ -1,6 +1,11 @@
 City,Location Name,Screen Aspect Ratio (AR),Digital Projector,Maximum AR for digital projection,Film Projector,Height,Width,Commercial films shown?
-Berlin,UCI Luxe Mercedes Platz & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.5 m,22.3 m,Yes
+Berlin,UCI Luxe East Side Gallery & IMAX,1.90:1,IMAX CoLa,1.90:1,No,13.5 m,22.3 m,Yes
+Dortmund,CineStar Dortmund & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,10.15 m,20.04 m,Yes
+Düsseldorf,UCI Düsseldorf & IMAX,1.90:1,IMAX CoLa,1.90:1,No,10.5 m,20.0 m,Yes
+Frankfurt,CineStar Metropolis & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,11.3 m,21.34 m,Yes
 Karlsruhe,Filmpalast am ZKM & IMAX,1.43:1,IMAX GT Laser,1.43:1,No,15.8 m,22.3 m,Yes
+Kassel,Filmpalast Kassel & IMAX,1.90:1,IMAX GT Laser,1.90:1,No,9.8 m,18.6 m,Yes
+Leipzig,CineStar Leipzig & IMAX,1.90:1,IMAX Laser XT,1.90:1,No,10.19 m,20.0 m,Yes
 Leonberg,IMAX Leonberg,1.90:1,IMAX GT Laser,1.90:1,No,21.0 m,38.8 m,Yes
 Sinsheim,"IMAX 3D, Sinsheim Auto & Technik Museum",1.43:1,IMAX GT Laser,1.43:1,No,22.0 m,27.0 m,Yes
 Speyer,"IMAX Dome, Speyer Technik Museum",Dome 1.43:1,N/A,N/A,IMAX GT Dome 15/70 mm,0 m,24.0 m,No
