@@ -15,6 +15,7 @@ class TheatreDatabase {
         this.allTheatres = [];
         this.filteredTheatres = [];
         this.currentUnit = 'metric';
+        this.isRestoringFromUrl = false;
         
         // Administrative division column mapping
         this.ADMIN_DIVISION_COLUMNS = ['Province', 'State', 'Region', 'District', 'Prefecture', 'Canton', 'Country', 'Emirate'];
@@ -579,6 +580,42 @@ class TheatreDatabase {
         this.filteredTheatres = filtered;
         this.renderTable();
         this.updateStats();
+        this.updateUrl();
+    }
+
+    // Persist the current filter state into the page URL (shareable / bookmarkable)
+    updateUrl() {
+        if (this.isRestoringFromUrl) return;
+
+        const params = new URLSearchParams();
+        const setParam = (key, value) => {
+            if (value !== undefined && value !== null && value !== '') {
+                params.set(key, value);
+            }
+        };
+
+        // Region filter is only present/visible on the global (database.html) page
+        const regionSelect = document.getElementById('regionSelect');
+        if (regionSelect && regionSelect.parentElement.style.display !== 'none') {
+            setParam('region', regionSelect.value);
+        }
+
+        setParam('country', document.getElementById('countrySelect')?.value);
+        setParam('province', document.getElementById('adminDivSelect')?.value);
+        setParam('city', document.getElementById('citySelect')?.value);
+        setParam('projector', document.getElementById('projectorFilter')?.value);
+        setParam('size', document.getElementById('screenSizeFilter')?.value);
+        setParam('format', document.getElementById('aspectRatioFilter')?.value);
+        setParam('film', document.getElementById('filmCapabilityFilter')?.value);
+        setParam('search', document.getElementById('searchInput')?.value);
+
+        if (this.currentUnit && this.currentUnit !== 'metric') {
+            setParam('units', this.currentUnit);
+        }
+
+        const query = params.toString();
+        const newUrl = `${window.location.pathname}${query ? '?' + query : ''}${window.location.hash}`;
+        window.history.replaceState(null, '', newUrl);
     }
 
     // Enhanced filter helper methods
@@ -757,29 +794,22 @@ class TheatreDatabase {
             option.classList.remove('active');
         });
         document.querySelector(`[data-unit="${unit}"]`).classList.add('active');
-        
+
         this.renderTable();
+        this.updateUrl();
     }
 
     // Reset all filters
     resetFilters() {
-        document.getElementById('regionSelect').value = '';
-        document.getElementById('countrySelect').value = '';
-        document.getElementById('adminDivSelect').value = '';
-        document.getElementById('citySelect').value = '';
-        document.getElementById('projectorFilter').value = '';
-        document.getElementById('searchInput').value = '';
-        
-        // Reset new enhanced filters
-        const screenSizeFilter = document.getElementById('screenSizeFilter');
-        if (screenSizeFilter) screenSizeFilter.value = '';
-        
-        const aspectRatioFilter = document.getElementById('aspectRatioFilter');
-        if (aspectRatioFilter) aspectRatioFilter.value = '';
-        
-        const filmCapabilityFilter = document.getElementById('filmCapabilityFilter');
-        if (filmCapabilityFilter) filmCapabilityFilter.value = '';
-        
+        [
+            'regionSelect', 'countrySelect', 'adminDivSelect', 'citySelect',
+            'projectorFilter', 'searchInput', 'screenSizeFilter',
+            'aspectRatioFilter', 'filmCapabilityFilter'
+        ].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) element.value = '';
+        });
+
         if (this.region) {
             this.populateRegionalFilters();
             this.filteredTheatres = [...this.allTheatres];
@@ -790,6 +820,7 @@ class TheatreDatabase {
         
         this.renderTable();
         this.updateStats();
+        this.updateUrl();
     }
 
     // Update statistics
@@ -840,67 +871,143 @@ class TheatreDatabase {
         URL.revokeObjectURL(url);
     }
 
-    // Handle URL parameters
+    // Restore filter state from URL parameters on load
     handleUrlParameters() {
         const urlParams = new URLSearchParams(window.location.search);
-        const country = urlParams.get('country');
-        const state = urlParams.get('state') || urlParams.get('province');
-        const city = urlParams.get('city');
-        
-        if (country || state || city) {
-            setTimeout(() => {
-                if (country) {
-                    const countryMap = {
-                        'canada': 'Canada',
-                        'unitedstates': 'United States',
-                        'unitedkingdom': 'United Kingdom'
-                    };
-                    const countryName = countryMap[country.toLowerCase()] || 
-                                      country.charAt(0).toUpperCase() + country.slice(1);
-                    const countrySelect = document.getElementById('countrySelect');
-                    if (countrySelect) {
-                        countrySelect.value = countryName;
-                        this.updateAdminDivisionFilter();
-                    }
-                }
-                
-                if (state) {
-                    setTimeout(() => {
-                        const adminSelect = document.getElementById('adminDivSelect');
-                        if (adminSelect) {
-                            // Try exact match first, then partial match
-                            const stateValue = Array.from(adminSelect.options)
-                                .find(option => 
-                                    option.value.toLowerCase() === state.toLowerCase() ||
-                                    option.value.toLowerCase().includes(state.toLowerCase())
-                                )?.value;
-                            if (stateValue) {
-                                adminSelect.value = stateValue;
-                                this.updateCityFilter();
-                            }
-                        }
-                    }, 100);
-                }
-                
-                if (city) {
-                    setTimeout(() => {
-                        const citySelect = document.getElementById('citySelect');
-                        if (citySelect) {
-                            const cityValue = Array.from(citySelect.options)
-                                .find(option => 
-                                    option.value.toLowerCase() === city.toLowerCase() ||
-                                    option.value.toLowerCase().includes(city.toLowerCase())
-                                )?.value;
-                            if (cityValue) {
-                                citySelect.value = cityValue;
-                            }
-                        }
-                    }, 200);
-                }
-                
-                setTimeout(() => this.applyFilters(), 300);
-            }, 500);
+        if ([...urlParams.keys()].length === 0) {
+            return;
         }
+
+        // Avoid rewriting the URL while we programmatically set filter values
+        this.isRestoringFromUrl = true;
+
+        // Units toggle (metric / imperial)
+        const units = urlParams.get('units');
+        if (units === 'imperial' || units === 'metric') {
+            this.toggleUnits(units);
+        }
+
+        // Region filter (global page only; cascades into country options)
+        const region = urlParams.get('region');
+        const regionSelect = document.getElementById('regionSelect');
+        if (region && regionSelect && regionSelect.parentElement.style.display !== 'none') {
+            const regionValue = this.matchOptionValue(regionSelect, region);
+            if (regionValue !== null) {
+                regionSelect.value = regionValue;
+                this.updateCountryFilter();
+            }
+        }
+
+        // Country filter (cascades into province/state options)
+        const country = urlParams.get('country');
+        if (country) {
+            const countrySelect = document.getElementById('countrySelect');
+            if (countrySelect) {
+                const countryValue = this.matchOptionValue(countrySelect, country, this.normalizeCountry(country));
+                if (countryValue !== null) {
+                    countrySelect.value = countryValue;
+                    this.updateAdminDivisionFilter();
+                }
+            }
+        }
+
+        // Province / State filter (cascades into city options)
+        const province = urlParams.get('province') || urlParams.get('state');
+        if (province) {
+            const adminSelect = document.getElementById('adminDivSelect');
+            if (adminSelect) {
+                const adminValue = this.matchOptionValue(adminSelect, province);
+                if (adminValue !== null) {
+                    adminSelect.value = adminValue;
+                    this.updateCityFilter();
+                }
+            }
+        }
+
+        // City filter
+        const city = urlParams.get('city');
+        if (city) {
+            const citySelect = document.getElementById('citySelect');
+            if (citySelect) {
+                const cityValue = this.matchOptionValue(citySelect, city);
+                if (cityValue !== null) {
+                    citySelect.value = cityValue;
+                }
+            }
+        }
+
+        // Non-cascading value filters
+        this.restoreSelectValue('projectorFilter', urlParams.get('projector'));
+        this.restoreSelectValue('screenSizeFilter', urlParams.get('size'));
+        this.restoreSelectValue('aspectRatioFilter', urlParams.get('format'));
+        this.restoreSelectValue('filmCapabilityFilter', urlParams.get('film'));
+
+        // Free-text search
+        const search = urlParams.get('search');
+        if (search) {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.value = search;
+            }
+        }
+
+        this.isRestoringFromUrl = false;
+        this.applyFilters();
+    }
+
+    // Find the option value in a select that best matches a raw URL value.
+    // Tries an exact (case-insensitive) match first, then a partial match,
+    // so both canonical values and short/slug-style values keep working.
+    matchOptionValue(selectElement, rawValue, preferred = null) {
+        if (!selectElement || !rawValue) {
+            return null;
+        }
+
+        const candidates = [preferred, rawValue]
+            .filter(Boolean)
+            .map(value => value.toString().toLowerCase());
+        const options = Array.from(selectElement.options).filter(option => option.value);
+
+        for (const candidate of candidates) {
+            const exact = options.find(option => option.value.toLowerCase() === candidate);
+            if (exact) {
+                return exact.value;
+            }
+        }
+
+        for (const candidate of candidates) {
+            const partial = options.find(option => option.value.toLowerCase().includes(candidate));
+            if (partial) {
+                return partial.value;
+            }
+        }
+
+        return null;
+    }
+
+    // Restore a select whose values are fixed/technical (not location-dependent)
+    restoreSelectValue(elementId, value) {
+        if (!value) {
+            return;
+        }
+        const select = document.getElementById(elementId);
+        if (!select) {
+            return;
+        }
+        const matched = this.matchOptionValue(select, value);
+        if (matched !== null) {
+            select.value = matched;
+        }
+    }
+
+    // Backward-compatible mapping for legacy compact country slugs
+    normalizeCountry(country) {
+        const countryMap = {
+            'canada': 'Canada',
+            'unitedstates': 'United States',
+            'unitedkingdom': 'United Kingdom'
+        };
+        return countryMap[country.toLowerCase()] || null;
     }
 
     // UI helper methods
