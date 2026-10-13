@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMAX Theatre Database - Interactive Browser</title>
-    <meta name="description" content="Browse and search IMAX theatres worldwide with advanced filtering by projector type, screen format, and location.">
+    <title>IMAX Theatre Database - Global View</title>
+    <meta name="description" content="Browse IMAX theatres worldwide with advanced filtering by region, projector type, and specifications.">
     
     <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" href="css/database.css">
@@ -12,111 +12,83 @@
 <body>
     <div class="container">
         <div class="breadcrumb">
-            <a href="index.html">🏠 Home</a>
-            <span>/</span>
-            <span>🗃️ Theatre Database</span>
+            <a href="index.html">Home</a> / <strong>Global Database</strong>
         </div>
 
-        <div class="header">
-            <h1>🗃️ IMAX Theatre Database</h1>
-            <p>Interactive browser with advanced filtering and search capabilities - Global comparison view</p>
-            <div class="region-nav">
-                <p style="margin: 10px 0; color: #B8B8B8; font-size: 14px;">
-                    For faster browsing, visit regional pages: 
-                    <a href="americas.html" style="color: #0072CE;">Americas</a>, 
-                    <a href="europe.html" style="color: #0072CE;">Europe</a>, 
-                    <a href="asia.html" style="color: #0072CE;">Asia</a>, 
-                    <a href="africa.html" style="color: #0072CE;">Africa</a>, 
-                    <a href="oceania.html" style="color: #0072CE;">Oceania</a>
-                </p>
-            </div>
+        <div class="page-header">
+            <h1 class="page-title">IMAX Theatre Database</h1>
+            <p class="page-subtitle">Browse and search all IMAX locations worldwide</p>
         </div>
 
         <div class="controls">
-            <div class="controls-row">
+            <div class="control-row">
                 <div class="control-group">
-                    <label for="regionSelect">Region:</label>
+                    <label for="regionSelect">Region</label>
                     <select id="regionSelect">
-                        <option value="">Select region</option>
+                        <option value="">All Regions</option>
                     </select>
                 </div>
-                
                 <div class="control-group">
-                    <label for="countrySelect">Country/Area:</label>
+                    <label for="countrySelect">Country</label>
                     <select id="countrySelect">
-                        <option value="">All Countries/Areas</option>
+                        <option value="">All Countries</option>
                     </select>
                 </div>
-                
                 <div class="control-group">
-                    <label for="adminDivSelect">Province/State:</label>
+                    <label for="adminDivSelect">State / Province</label>
                     <select id="adminDivSelect">
-                        <option value="">All Provinces/States</option>
+                        <option value="">All Divisions</option>
                     </select>
                 </div>
-                
+            </div>
+
+            <div class="control-row">
                 <div class="control-group">
-                    <label for="citySelect">City:</label>
+                    <label for="citySelect">City</label>
                     <select id="citySelect">
                         <option value="">All Cities</option>
                     </select>
                 </div>
-                
                 <div class="control-group">
-                    <label for="projectorFilter">Projector Type:</label>
+                    <label for="projectorFilter">Digital Projector</label>
                     <select id="projectorFilter">
-                        <option value="">All Projectors</option>
+                        <option value="">All Types</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="aspectRatioFilter">Screen Aspect</label>
+                    <select id="aspectRatioFilter">
+                        <option value="">All Sizes</option>
                     </select>
                 </div>
             </div>
-            
-            <div class="controls-row">
+            <div class="control-row control-row-actions">
                 <div class="control-group">
-                    <label for="screenSizeFilter">Screen Size:</label>
-                    <select id="screenSizeFilter">
-                        <option value="">All Sizes</option>
-                        <option value="large">Large (&ge;16m)</option>
-                        <option value="standard">Standard (15-16m)</option>
-                        <option value="small">Small (&lt;15m)</option>
-                    </select>
-                </div>
-                
-                <div class="control-group">
-                    <label for="aspectRatioFilter">Format:</label>
-                    <select id="aspectRatioFilter">
-                        <option value="">All Formats</option>
-                        <option value="true-imax">1.43:1 True IMAX</option>
-                        <option value="imax-digital">1.90:1 IMAX Digital</option>
-                        <option value="dome">Dome</option>
-                    </select>
-                </div>
-                
-                <div class="control-group">
-                    <label for="filmCapabilityFilter">Film Capability:</label>
+                    <label for="filmCapabilityFilter">Film Capable</label>
                     <select id="filmCapabilityFilter">
                         <option value="">All Theatres</option>
-                        <option value="film-capable">Film-Capable</option>
-                        <option value="digital-only">Digital-Only</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
                     </select>
                 </div>
-            </div>
-            
-            <div class="controls-row">
                 <div class="control-group">
-                    <label for="searchInput">Search:</label>
-                    <input type="text" id="searchInput" placeholder="Search theatres, cities, locations...">
-                </div>
-                
-                <div class="control-group">
-                    <label>Units:</label>
-                    <div class="unit-toggle">
-                        <div class="unit-option active" data-unit="metric">Metric</div>
-                        <div class="unit-option" data-unit="imperial">Imperial</div>
+                    <label>Units</label>
+                    <div class="unit-toggle" role="group" aria-label="Dimension units">
+                        <button type="button" class="unit-option active" data-unit="metric">Metric</button>
+                        <button type="button" class="unit-option" data-unit="imperial">Imperial</button>
                     </div>
                 </div>
-                
-                <button id="exportBtn" class="btn">📊 Export CSV</button>
-                <button id="resetBtn" class="btn btn-secondary">🔄 Reset Filters</button>
+                <div class="control-group controls-button-group">
+                    <label aria-hidden="true">&nbsp;</label>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    <button id="exportBtn" class="btn btn-secondary">Export CSV</button>
+                </div>
+            </div>
+            <div class="control-row search-row">
+                <div class="control-group">
+                    <label for="searchInput">Search</label>
+                    <input type="text" id="searchInput" placeholder="Location name...">
+                </div>
             </div>
         </div>
 
@@ -125,118 +97,61 @@
             <p>Loading IMAX theatre data...</p>
         </div>
 
-        <div id="statsContainer" class="stats" style="display: none;">
-            <div class="stat-card">
-                <div class="stat-value" id="totalTheatres">0</div>
-                <div class="stat-label">Total Theatres</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalRegions">0</div>
-                <div class="stat-label">Regions</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalCities">0</div>
-                <div class="stat-label">Cities</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="projectorTypes">0</div>
-                <div class="stat-label">Projector Types</div>
+        <div id="statsContainer" class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalTheatres">0</div>
+                    <div class="stat-label">Total Theatres</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalRegions">0</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalCities">0</div>
+                    <div class="stat-label">Cities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="projectorTypes">0</div>
+                    <div class="stat-label">Projector Types</div>
+                </div>
             </div>
         </div>
 
-        <div id="errorDiv" class="error" style="display: none;"></div>
+        <div id="errorDiv" class="error-container"></div>
 
         <div id="tableContainer" class="table-container" style="display: none;">
-            <div class="table-wrapper">
+            <div class="table-scroll-wrapper">
                 <table id="theatreTable">
                     <thead>
                         <tr>
-                            <th class="sortable-column" data-sort-field="Region" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Region</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Country" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Country/Area</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Administrative Division" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Province/State</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="City" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">City</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Location Name" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Location Name</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Screen Aspect Ratio (AR)" data-sort-type="aspect-ratio">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Screen Aspect Ratio</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Digital Projector" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Digital Projector</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Maximum AR for digital projection" data-sort-type="aspect-ratio">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Max Digital AR</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Film Projector" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Film Projector</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Height" data-sort-type="dimension">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Height</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Width" data-sort-type="dimension">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Width</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
-                            <th class="sortable-column" data-sort-field="Commercial films shown?" data-sort-type="text">
-                                <button type="button" class="sort-button">
-                                    <span class="sort-label">Commercial Films</span>
-                                    <span class="sort-indicator" aria-hidden="true"></span>
-                                </button>
-                            </th>
+                            <th class="sortable-column" data-sort-field="Region"><button type="button" class="sort-button"><span class="sort-label">Region</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Country"><button type="button" class="sort-button"><span class="sort-label">Country/Area</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Administrative Division"><button type="button" class="sort-button"><span class="sort-label">Province/State</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="City"><button type="button" class="sort-button"><span class="sort-label">City</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Location Name"><button type="button" class="sort-button"><span class="sort-label">Location Name</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Screen Aspect Ratio (AR)"><button type="button" class="sort-button"><span class="sort-label">Screen Aspect Ratio</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Digital Projector"><button type="button" class="sort-button"><span class="sort-label">Digital Projector</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Maximum AR for digital projection"><button type="button" class="sort-button"><span class="sort-label">Max Digital AR</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Film Projector"><button type="button" class="sort-button"><span class="sort-label">Film Projector</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Height"><button type="button" class="sort-button"><span class="sort-label">Height</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Width"><button type="button" class="sort-button"><span class="sort-label">Width</span><span class="sort-indicator"></span></button></th>
+                            <th class="sortable-column" data-sort-field="Commercial films shown?"><button type="button" class="sort-button"><span class="sort-label">Commercial Films</span><span class="sort-indicator"></span></button></th>
                         </tr>
                     </thead>
                     <tbody id="theatreTableBody">
                     </tbody>
                 </table>
             </div>
+            <button id="tableScrollArrow" class="table-scroll-arrow" type="button" aria-label="Scroll table right">&rarr;</button>
         </div>
 
         <footer class="footer">
-            <p>This project is not affiliated with IMAX Corporation. Theatre information may change frequently.</p>
+            <p>Open-source IMAX theatre database. Not affiliated with IMAX Corporation.</p>
             <div class="footer-links">
-                <a href="https://github.com/r-imax/imaxguide" target="_blank">📂 GitHub Repository</a>
-                <a href="about/">📧 Contact & Support</a>
-                <a href="about/">📄 License (MIT)</a>
+                <a href="https://github.com/r-imax/imaxguide" target="_blank">GitHub</a>
+                <a href="about/">About</a>
+                <a href="about/">License</a>
             </div>
         </footer>
     </div>
@@ -244,15 +159,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="js/theatre-database.js"></script>
     <script>
-        // Initialize global comparison page
         document.addEventListener('DOMContentLoaded', function() {
             const database = new TheatreDatabase({
                 csvFiles: window.CSV_FILES,
-                region: null, // Global view - all regions
+                region: null,
                 enableComparison: true,
                 showRegionColumn: true
             });
-            
             database.initialize();
         });
     </script>
